@@ -1,0 +1,22 @@
+{
+  "name": "organizarr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lesliejpatino/Organizarr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lesliejpatino/Organizarr/issues"
+  },
+  "homepage": "https://github.com/lesliejpatino/Organizarr#readme"
+}
