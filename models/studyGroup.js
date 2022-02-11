@@ -18,7 +18,7 @@ StudyGroup.init(
       allowNull: false,
     },
     time:{
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     subject:{
@@ -29,10 +29,7 @@ StudyGroup.init(
         type: DataTypes.STRING,
         allowNull: false, 
     },
-    studyPreference:{
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    
 },
   {
     sequelize,
