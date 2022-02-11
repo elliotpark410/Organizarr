@@ -11,7 +11,9 @@ const StudyGroup = require('./StudyGroup');
 // Subject.hasMany(User, {
 //   foreignKey: 'user_id'
 // });
-
+StudyGroup.belongsTo(Subject, {
+  foreignKey: ''
+})
 
 
 ToDo.belongsTo(User, {
