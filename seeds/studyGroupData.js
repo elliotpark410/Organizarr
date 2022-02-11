@@ -6,7 +6,6 @@ const studyGroupData = [
     time: 'Aug 4th, 2022 9:00pm',
     subject: "Web Development",
     studyPreference:"active",
-
   },
   {
     url: 'www.zoom.com',

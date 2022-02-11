@@ -12,6 +12,8 @@ const StudyGroup = require('./StudyGroup');
 //   foreignKey: 'user_id'
 // });
 
+
+
 ToDo.belongsTo(User, {
   foreignKey: 'user_id'
 });
