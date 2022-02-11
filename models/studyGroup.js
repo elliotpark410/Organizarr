@@ -13,6 +13,7 @@ StudyGroup.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    // could change once we learn more about video api
     url:{
       type: DataTypes.STRING,
       allowNull: false,
