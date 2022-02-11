@@ -17,13 +17,13 @@ Subject.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id:{
-        type: DataTypes.INTEGER,
-        references:{
-            model: "user",
-            key: "id",
-        },
-    },
+    // studyGroup_ID:{
+    //     type: DataTypes.INTEGER,
+    //     references:{
+    //         model: "study_group",
+    //         key: "id",
+    //     },
+    // },
 },
   {
     sequelize,
