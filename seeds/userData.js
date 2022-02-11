@@ -27,6 +27,13 @@ const userData = [
   },
 ];
 
+// function seedUsers() {
+//   for (let i =0; i < userData.length; i++) {
+//     User.create(userData[i])
+//   }
+// }
+
+// seedUsers();
 const seedUsers = () => User.bulkCreate(userData);
 
 module.exports = seedUsers;
