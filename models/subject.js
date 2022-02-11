@@ -17,13 +17,6 @@ Subject.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // studyGroup_ID:{
-    //     type: DataTypes.INTEGER,
-    //     references:{
-    //         model: "study_group",
-    //         key: "id",
-    //     },
-    // },
 },
   {
     sequelize,
