@@ -31,7 +31,7 @@ ToDo.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'project',
+        modelName: 'todo',
     }
 );
 
