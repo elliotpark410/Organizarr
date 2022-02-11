@@ -17,12 +17,17 @@ const notesData = require('./notesData');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    await User.bulkCreate(userData, {
-      individualHooks: true,
-      returning: true,
-    });
+    await userData();
+
+    await toDoData();
+
+    await subjectData();
+
+    await studyGroupData();
+    
+    await notesData();
   
     process.exit(0);
-}
+};
 
 seedDatabase();
