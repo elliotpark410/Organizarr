@@ -1,4 +1,6 @@
-[
+const { Notes } = require('../models');
+
+const notesData = [
     {
         "title": "VS Code Shortcuts",
         "description": "Cmnd+D allows you to select the next occurence of the word you have selected. Opt+Shift+F lets you autoformat your file"
@@ -16,3 +18,6 @@
         "description": "'This is a string' ['This', 'is', 'an', 'array']"
     },
 ]
+const seedNotes = () => Notes.bulkCreate(notesData);
+
+module.exports = seedNotes;
