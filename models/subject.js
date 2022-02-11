@@ -17,7 +17,7 @@ Subject.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    users_id:{
+    user_id:{
         type: DataTypes.INTEGER,
         references:{
             model: "user",
