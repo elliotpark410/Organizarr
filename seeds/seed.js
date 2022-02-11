@@ -12,7 +12,7 @@ const userData = require('./userData');
 const toDoData = require('./toDoData');
 const subjectData = require('./subjectData');
 const studyGroupData = require('./studyGroupData');
-const notesData = require('./notesData');
+// const notesData = require('./notesData');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -25,7 +25,7 @@ const seedDatabase = async () => {
 
     await studyGroupData();
     
-    await notesData();
+    // await notesData();
   
     process.exit(0);
 };
