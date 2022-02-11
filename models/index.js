@@ -1,17 +1,18 @@
-const User = require('./user');
-const Subject = require('./subject');
-const ToDo = require('./toDo');
-const Notes = require('./notes');
-const StudyGroup = require('./studyGroup');
+const User = require('./User');
+const Subject = require('./Subject');
+const ToDo = require('./ToDo');
+const Notes = require('./Notes');
+const StudyGroup = require('./StudyGroup');
 
-
-
-User.hasOne(Subject, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+User.belongsTo(Subject, {
+  foreignKey: 'user_id'
 });
 
-Subject.belongsTo(User, {
+Subject.hasMany(User, {
+  foreignKey: 'user_id'
+});
+
+ToDo.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
@@ -20,7 +21,7 @@ User.hasMany(ToDo, {
   onDelete: 'CASCADE'
 });
 
-ToDo.belongsTo(User, {
+Notes.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
@@ -29,16 +30,11 @@ User.hasMany(Notes, {
   onDelete: 'CASCADE'
 });
 
-Notes.belongsTo(User, {
-  foreignKey: 'user_id'
-});
-
 StudyGroup.belongsToMany(User, {
   through: {
     model: Subject
   },
 });
-
 
 
 module.exports = { User, Notes, StudyGroup, Subject, ToDo };

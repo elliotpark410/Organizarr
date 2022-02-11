@@ -1,4 +1,4 @@
-const { Model, Data, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class ToDo extends Model { }
