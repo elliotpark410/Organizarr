@@ -8,16 +8,16 @@ router.get('/', withAuth, async (req, res) => {
     const studyGroupData = await StudyGroup.findAll({
       include: [
         {
-          model: subject,
-          attributes: ['url', 'time', 'studyPreference'],
+          model: Subject,
+          attributes: ['name'],
         },
       ],
     });
     
-    const subject = subjectData.get({ plain: true });
+    const studyGroup = studyGroupData.get({ plain: true });
 
-    res.render('subject', {
-      ...subject,
+    res.render('studygroup', {
+      ...studyGroup,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -28,19 +28,19 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const subjectData = await Subject.findByPk(req.params.id, {
+    const studyGroupData = await Subject.findByPk(req.params.id, {
       include: [
         {
-          model: StudyGroup,
-          attributes: ['url', 'time', 'studyPreference'],
+          model: Subject,
+          attributes: ['name'],
         },
       ],
     });
 
-    const subject = subjectData.get({ plain: true });
+    const studygroup = studyGroupData.get({ plain: true });
 
-    res.render('todo', {
-      ...subject,
+    res.render('studygroup', {
+      ...studygroup,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -51,12 +51,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newSubject = await Subject.create({
+    const newStudyGroup = await StudyGroup.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newSubject);
+    res.status(200).json(newStudyGroup);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -65,19 +65,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const subjectData = await Subject.update({
+    const studyGroupData = await StudyGroup.update({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!subjectData) {
-      res.status(404).json({ message: 'No subject found with this id!' });
+    if (!studyGroupData) {
+      res.status(404).json({ message: 'No study group found with this id!' });
       return;
     }
 
-    res.status(200).json(subjectData);
+    res.status(200).json(studyGroupData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,19 +86,19 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const subjectData = await Subject.destroy({
+    const studyGroupData = await StudyGroup.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!subjectData) {
-      res.status(404).json({ message: 'No subject found with this id!' });
+    if (!studyGroupData) {
+      res.status(404).json({ message: 'No study group found with this id!' });
       return;
     }
 
-    res.status(200).json(subjectData);
+    res.status(200).json(studyGroupData);
   } catch (err) {
     res.status(500).json(err);
   }
