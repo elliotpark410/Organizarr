@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { ToDo, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-router.get('/', withAuth, async (req, res) => {
+// ALREADY IN HOME ROUTE UNDER DASHBOARDS. delete later
+router.get('/', async (req, res) => {
   try {
     const todoData = await ToDo.findAll({
       include: [
@@ -15,8 +15,6 @@ router.get('/', withAuth, async (req, res) => {
     });
     
     const todo = todoData.get({ plain: true });
-
-    res.json(todoData);
 
     res.render('todo', {
       ...todo,

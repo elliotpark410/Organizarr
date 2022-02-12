@@ -1,3 +1,10 @@
+// Home Routes should only be for GET routes and res.render
+// res.json only for APIs
+// POST, PUT, or DELETE in API routes
+// move user post route to API
+// only need withAuth for dashboard, edit, post, or delete
+
+
 // Express router is a class which helps us to create router handlers e.g. get, post, delete, put routes
 const router = require('express').Router();
 
@@ -6,7 +13,7 @@ const { User, ToDo, Subject, StudyGroup, Notes } = require('../models');
 
 const withAuth = require('../utils/auth');
 
-// If user has session saved, then user will automatically be logged in
+// If user has session saved, then user will automatically be logged in. MOVE TO USER ROUTE
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
