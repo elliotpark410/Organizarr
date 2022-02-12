@@ -30,7 +30,7 @@ const delToDO = async (event) => {
       }
     }
   };
-
+// add Todo
   const newToDo = async (event) => {
     event.preventDefault();
   
@@ -51,9 +51,30 @@ const delToDO = async (event) => {
       }
     }
   };
-
-
+  // Create Note
+  const newNote = async (event) => {
+    event.preventDefault();
+    const title = document.querySelector('NEED INPUT FORM').value.trim();
+    const desc = document.querySelector('NEED INPUT FORM').value.trim();
+    if (title, desc) {
+      const response = await fetch(`/BLANK`, {
+        method: 'POST',
+        body: JSON.stringify({ title, description }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
   
+      if (response.ok) {
+        document.location.replace('/BLANK');
+      } else {
+        alert('Failed to create a notes');
+      }
+    }
+  };
+
+
+
 
   document
   .getElementById('#deleteToDo')
@@ -66,3 +87,7 @@ const delToDO = async (event) => {
   document
   .querySelector('NEED CLASS')
   .addEventListener('submit', newToDo);
+
+  document
+  .querySelector('NEED CLASS')
+  .addEventListener('submit', newNote);
