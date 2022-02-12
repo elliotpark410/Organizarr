@@ -31,16 +31,16 @@ router.get('/:id', async (req, res) => {
     const subjectData = await Subject.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: StudyGroup,
+          attributes: ['url', 'time', 'studyPreference'],
         },
       ],
     });
 
-    const note = notesData.get({ plain: true });
+    const subject = subjectData.get({ plain: true });
 
     res.render('todo', {
-      ...note,
+      ...subject,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -51,12 +51,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newNote = await Notes.create({
+    const newSubject = await Subject.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newNote);
+    res.status(200).json(newSubject);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -65,19 +65,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const notesData = await Notes.update({
+    const subjectData = await Subject.update({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!notesData) {
-      res.status(404).json({ message: 'No note found with this id!' });
+    if (!subjectData) {
+      res.status(404).json({ message: 'No subject found with this id!' });
       return;
     }
 
-    res.status(200).json(notesData);
+    res.status(200).json(subjectData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,19 +86,19 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const notesData = await Notes.destroy({
+    const subjectData = await Subject.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!notesData) {
-      res.status(404).json({ message: 'No note found with this id!' });
+    if (!subjectData) {
+      res.status(404).json({ message: 'No subject found with this id!' });
       return;
     }
 
-    res.status(200).json(notesData);
+    res.status(200).json(subjectData);
   } catch (err) {
     res.status(500).json(err);
   }
