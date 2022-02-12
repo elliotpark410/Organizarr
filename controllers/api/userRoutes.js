@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // Export User model
-const { User } = require('../models');
+const { User } = require('../../models');
 
 // post route so user can enter email and password 
 router.post('/', async (req, res) => {

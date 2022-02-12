@@ -16,6 +16,8 @@ router.get('/', withAuth, async (req, res) => {
     
     const todo = todoData.get({ plain: true });
 
+    res.json(todoData);
+
     res.render('todo', {
       ...todo,
       logged_in: req.session.logged_in
