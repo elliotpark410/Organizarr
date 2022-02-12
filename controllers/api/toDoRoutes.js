@@ -1,11 +1,34 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { ToDo, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const todoData = await ToDo.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+    
+    const todo = todoData.get({ plain: true });
+
+    res.render('todo', {
+      ...todo,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 router.get('/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const todoData = await ToDo.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -14,10 +37,10 @@ router.get('/:id', async (req, res) => {
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const todo = todoData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('todo', {
+      ...todo,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -28,32 +51,54 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newProject = await Project.create({
+    const newTodo = await ToDo.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newTodo);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+
+router.put('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const todoData = await ToDo.update({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!todoData) {
+      res.status(404).json({ message: 'No todo found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(todoData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const todoData = await ToDo.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!todoData) {
+      res.status(404).json({ message: 'No todo found with this id!' });
+      return;
+    }
+
+    res.status(200).json(todoData);
   } catch (err) {
     res.status(500).json(err);
   }
