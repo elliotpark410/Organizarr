@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const { Subject, StudyGroup } = require('../../models');
+const { ToDo, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-router.get('/', withAuth, async (req, res) => {
+// ALREADY IN HOME ROUTE UNDER DASHBOARDS. delete later
+router.get('/', async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.findAll({
+    const todoData = await ToDo.findAll({
       include: [
         {
-          model: Subject,
+          model: User,
           attributes: ['name'],
         },
       ],
     });
     
-    const studyGroup = studyGroupData.get({ plain: true });
+    const todo = todoData.get({ plain: true });
 
-    res.render('studygroup', {
-      ...studyGroup,
+    res.render('todo', {
+      ...todo,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -28,19 +28,19 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const studyGroupData = await Subject.findByPk(req.params.id, {
+    const todoData = await ToDo.findByPk(req.params.id, {
       include: [
         {
-          model: Subject,
+          model: User,
           attributes: ['name'],
         },
       ],
     });
 
-    const studygroup = studyGroupData.get({ plain: true });
+    const todo = todoData.get({ plain: true });
 
-    res.render('studygroup', {
-      ...studygroup,
+    res.render('todo', {
+      ...todo,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -51,12 +51,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newStudyGroup = await StudyGroup.create({
+    const newTodo = await ToDo.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newStudyGroup);
+    res.status(200).json(newTodo);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -65,19 +65,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.update({
+    const todoData = await ToDo.update({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!studyGroupData) {
-      res.status(404).json({ message: 'No study group found with this id!' });
+    if (!todoData) {
+      res.status(404).json({ message: 'No todo found with this id!' });
       return;
     }
 
-    res.status(200).json(studyGroupData);
+    res.status(200).json(todoData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,19 +86,19 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.destroy({
+    const todoData = await ToDo.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!studyGroupData) {
-      res.status(404).json({ message: 'No study group found with this id!' });
+    if (!todoData) {
+      res.status(404).json({ message: 'No todo found with this id!' });
       return;
     }
 
-    res.status(200).json(studyGroupData);
+    res.status(200).json(todoData);
   } catch (err) {
     res.status(500).json(err);
   }

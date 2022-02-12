@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const { Subject, StudyGroup } = require('../../models');
+const { Notes, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.findAll({
+    const notesData = await Notes.findAll({
       include: [
         {
-          model: Subject,
+          model: User,
           attributes: ['name'],
         },
       ],
     });
     
-    const studyGroup = studyGroupData.get({ plain: true });
+    const note = notesData.get({ plain: true });
 
-    res.render('studygroup', {
-      ...studyGroup,
+    res.render('notes', {
+      ...note,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -28,19 +28,19 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const studyGroupData = await Subject.findByPk(req.params.id, {
+    const notesData = await Notes.findByPk(req.params.id, {
       include: [
         {
-          model: Subject,
+          model: User,
           attributes: ['name'],
         },
       ],
     });
 
-    const studygroup = studyGroupData.get({ plain: true });
+    const note = notesData.get({ plain: true });
 
-    res.render('studygroup', {
-      ...studygroup,
+    res.render('todo', {
+      ...note,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -51,12 +51,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newStudyGroup = await StudyGroup.create({
+    const newNote = await Notes.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newStudyGroup);
+    res.status(200).json(newNote);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -65,19 +65,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.update({
+    const notesData = await Notes.update({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!studyGroupData) {
-      res.status(404).json({ message: 'No study group found with this id!' });
+    if (!notesData) {
+      res.status(404).json({ message: 'No note found with this id!' });
       return;
     }
 
-    res.status(200).json(studyGroupData);
+    res.status(200).json(notesData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,19 +86,19 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const studyGroupData = await StudyGroup.destroy({
+    const notesData = await Notes.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!studyGroupData) {
-      res.status(404).json({ message: 'No study group found with this id!' });
+    if (!notesData) {
+      res.status(404).json({ message: 'No note found with this id!' });
       return;
     }
 
-    res.status(200).json(studyGroupData);
+    res.status(200).json(notesData);
   } catch (err) {
     res.status(500).json(err);
   }

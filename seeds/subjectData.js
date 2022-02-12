@@ -2,16 +2,16 @@ const { Subject } = require('../models');
 
 const subjectData = [
   {
-    subject_name: 'Web Development'
+    name: 'Web Development'
   },
   {
-    subject_name: 'Soccer'
+    name: 'Soccer'
   },
   {
-    subject_name: 'Music'
+    name: 'Music'
   },
   {
-    subject_name: 'birds watching'
+    name: 'birds watching'
   },
   
 ];

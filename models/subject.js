@@ -13,7 +13,7 @@ Subject.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    subject_name:{
+    name:{
       type: DataTypes.STRING,
       allowNull: false,
     },
