@@ -1,0 +1,40 @@
+/* makes active link appear bold in navbar */
+.active {
+    font-weight: bold;
+}
+
+/* note section in dashboard */
+li {
+    list-style-type: none;
+}
+
+.note-textarea,
+.note-title {
+  color: #000000;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.note-textarea {
+  resize: none;
+  height: calc(100% - 63px);
+  padding-top: 15px;
+}
+
+.note-title {
+  height: 50px;
+  margin-top: 13px;
+  font-size: 3rem;
+}
+
+
+.note-title:read-only,
+.note-textarea:read-only {
+  color: #757575;
+}
+
+/* container on sign up page */
+.signUp {
+    margin: 0 auto;
+}
