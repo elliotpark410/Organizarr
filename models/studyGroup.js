@@ -18,21 +18,25 @@ StudyGroup.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    date:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     time:{
       type: DataTypes.STRING,
       allowNull: false,
     },
-    subject_id:{
-        type: DataTypes.INTEGER,
-        references:{
-          model: 'subject',
-          key:"id"
-        },
-    },
-    studyPreference:{
+     studyPreference:{
         type: DataTypes.STRING,
         allowNull: false, 
     },
+    subject_id:{
+      type: DataTypes.INTEGER,
+      references:{
+        model: 'subject',
+        key:"id"
+    },
+  },
 
     
 },

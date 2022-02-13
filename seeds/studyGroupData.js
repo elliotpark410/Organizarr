@@ -3,27 +3,31 @@ const { StudyGroup } = require('../models');
 const studyGroupData = [
   {
     url: 'www.blank.com',
-    time: 'Aug 4th, 2022 9:00pm',
-    subject_id: 1,
+    date: '02/14/2022',
+    time: '9:00pm',
     studyPreference:"active",
+    subject_id: 1,
   },
   {
     url: 'www.zoom.com',
-    time: 'Oct 5th, 2022 8:00pm',
+    date: '02/15/2022',
+    time: '8:00pm',
+    studyPreference:"quiet",
     subject_id: 2,
-    studyPreference:"quite",
   },
   {
     url: 'www.googlechat.com',
-    time: 'Aug 4th, 2022 7:00am',
-    subject_id: 3,
+    date: '02/16/2022',
+    time: '7:00am',
     studyPreference:"singing",
+    subject_id: 3,
   },
   {
     url: 'www.skype.com',
-    time: 'Aug 6th, 3546 1:00am',
+    date: '02/17/2022',
+    time: '1:00am',
+    studyPreference:"collabortive",
     subject_id: 4,
-    studyPreference:"colabortive",
   },
   
 ];
