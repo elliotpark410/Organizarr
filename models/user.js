@@ -32,10 +32,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        subject: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
     },
     {
         hooks: {
