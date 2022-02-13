@@ -3,7 +3,7 @@ const delToDO = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/"filler"/${id}`, {
+      const response = await fetch(`/todo/${id}`, {
         method: 'DELETE',
       });
   
@@ -19,7 +19,7 @@ const delToDO = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/BLANK/${id}`, {
+      const response = await fetch(`/notes/${id}`, {
         method: 'DELETE',
       });
   
@@ -34,7 +34,7 @@ const delToDO = async (event) => {
   const newToDo = async (event) => {
     event.preventDefault();
   
-    const desc = document.querySelector('NEED INPUT FORM').value.trim();
+    const desc = document.querySelector('#toDo').value.trim();
     if (desc) {
       const response = await fetch(`/api/todo`, {
         method: 'POST',
@@ -108,7 +108,7 @@ const delToDO = async (event) => {
   .addEventListener('click', delNotes);
 
   document
-  .querySelector('NEED CLASS')
+  .querySelector('#saveToDo')
   .addEventListener('submit', newToDo);
 
   document
