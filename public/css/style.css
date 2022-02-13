@@ -39,12 +39,13 @@ li {
     margin: 0 auto;
 }
 
+#rsvp {
+  margin: 0 auto;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-#rsvp {
-  margin: 0 auto;
-}
