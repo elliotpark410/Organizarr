@@ -10,8 +10,10 @@ const router = require('express').Router();
 // Export User model
 const { User, ToDo, Subject, StudyGroup, Notes } = require('../models');
 
+const withAuth = require('../../utils/auth');
 
-router.get('/dashboard', async (req, res) => {
+
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -31,7 +33,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 
-router.get('/studygroup', async (req, res) => {
+router.get('/studygroup', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {

@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// post route so user can enter email and password 
+// If user doesn't have session saved, then post route for login so user can enter email and password 
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email, please try again' });
       return;
     }
 
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect password, please try again' });
       return;
     }
 
