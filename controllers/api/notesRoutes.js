@@ -1,52 +1,6 @@
 const router = require('express').Router();
-const { Notes, User } = require('../../models');
+const { Notes } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const notesData = await Notes.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-    
-    const note = notesData.get({ plain: true });
-
-    res.render('notes', {
-      ...note,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.get('/:id', async (req, res) => {
-  try {
-    const notesData = await Notes.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const note = notesData.get({ plain: true });
-
-    res.render('todo', {
-      ...note,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 
 router.post('/', withAuth, async (req, res) => {
