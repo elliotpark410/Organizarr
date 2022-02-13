@@ -48,9 +48,13 @@
                         <!-- {{todo.description}} -->
                     </div>
                     <div class="col-2">
-
-                        <i id="deleteToDo" class="fa fa-trash align-right col-2 mt-2" data-id="[todo.id]"
-                            style="font-size:30px;"> </i>
+                        <button type="click" id="saveToDo">
+                            <i class="fa fa-save" style="font-size:36px;"></i>
+                        </button>
+                        <button type="click" id="deleteToDo">
+                            <i class="fa fa-trash align-right col-1 mt-2" data-id="[todo.id]" style="font-size:30px;">
+                            </i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -155,18 +159,22 @@
             <div class="col-8 border">
                 <div class="row justify-content-between">
 
-                    {{#each notes as |note|}}
+                    <!-- {{#each notes as |note|}} -->
                     <div class="col-10">
                         <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
                         <textarea class="note-textarea" placeholder="Note Text"></textarea>
                     </div>
-                    {{/each}}
+                    <!-- {{/each}} -->
 
                     <div class="text-end col-1 mt-2">
-                       <button type="click" id="saveNote"><i class="fa fa-save" style="font-size:36px;"></i></button> 
+                        <button type="click" id="saveNote">
+                            <i class="fa fa-save" style="font-size:36px;"></i>
+                        </button>
                     </div>
                     <div class="text-end col-1 mt-2">
-                        <button class="btn " type="submit" id="addNote" ><i class="fa fa-plus" style="font-size:36px;"></i></button> 
+                        <button type="submit" class="btn" id="addNote">
+                            <i class="fa fa-plus" style="font-size:36px;"></i>
+                        </button>
                     </div>
                 </div>
             </div>
