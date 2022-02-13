@@ -1,27 +1,52 @@
-<h1 class="title text-center mt-4"> ORGANIZARR </h1>
-<h3 class="slogan text-center mb-5"> When the student life gets messy, we'll sweep it up for you! </h3>
+    <h1 class="title text-center mt-4"> ORGANIZARR </h1>
+    <h5 class="slogan text-center mb-5"> <em> When the student life gets messy, we'll sweep it up for you!</em></h5>
 
-<div class="container col-10">
-    <div class="row justify-content-between">
-        <div class="col-8 border p-4">
-            My carousel will go here
-            {{!-- INSERT CAROUSEL CODE HERE --}}
-        </div>
+    <div class="container col-11">
+        <div class="row justify-content-between">
+            <div class="col-7 border p-4">
+                My carousel will go here
+                {{!-- INSERT CAROUSEL CODE HERE --}}
+            </div>
 
-        <div class="col-3 border loginDiv p-4">
-            <h3 class="text-center pb-3">LOGIN</h3>
-            <form>
-                <div class="mb-3">
-                    <label for="userEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp">
+            <div class="col-4 border loginDiv p-4">
+
+                <div class="row justify-content-end">
+                    <div class="signUpDiv mb-3 text-center">
+                        <h3 class="text-center pb-3">New Users</h3>
+                        <button type="submit" class="btn btn-info signUpBtn">SIGN UP HERE!</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="userPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="userPassword">
-                </div>
-                <button type="submit" class="btn btn-info login">Let's Go!</button>
-            </form>
+
+                <hr>
+                <p class="text-center mb-0"> <em> Existing Users ... </em> </p>
+                <h3 class="text-center pb-3">Welcome Back</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="userPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="userPassword">
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info login "> Enter Dashboard</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<script src="/public/js/login.js"></script>
+
+
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <p><em>Created with the busy student in mind</em></p>
+            <a class="text-dark" href="">Joshua</a>,
+            <a class="text-dark" href="">Elliot</a> &
+            <a class="text-dark" href="">Leslie</a>,
+        </div>
+    </footer>
+
+
+    <script src="/public/js/login.js"></script>
