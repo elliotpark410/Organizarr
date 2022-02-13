@@ -2,16 +2,25 @@ const { Subject } = require('../models');
 
 const subjectData = [
   {
-    name: 'Web Development'
+    name: 'Web Dev'
   },
   {
-    name: 'Soccer'
+    name: 'Nursing'
   },
   {
-    name: 'Music'
+    name: 'Math'
   },
   {
-    name: 'birds watching'
+    name: 'Biology'
+  },
+  {
+    name: 'History'
+  },
+  {
+    name: 'Psychology'
+  },
+  {
+    Sports
   },
   
 ];
@@ -19,3 +28,4 @@ const subjectData = [
 const seedSubject = () => Subject.bulkCreate(subjectData);
 
 module.exports = seedSubject;
+
