@@ -8,7 +8,7 @@ const delToDO = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/"filler"');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete todo');
       }
@@ -24,7 +24,7 @@ const delToDO = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/BLANK');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete Note');
       }
@@ -36,7 +36,7 @@ const delToDO = async (event) => {
   
     const desc = document.querySelector('NEED INPUT FORM').value.trim();
     if (desc) {
-      const response = await fetch(`/BLANK`, {
+      const response = await fetch(`/api/todo`, {
         method: 'POST',
         body: JSON.stringify({ description }),
         headers: {
@@ -45,7 +45,7 @@ const delToDO = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/BLANK');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create toDO');
       }
@@ -54,10 +54,10 @@ const delToDO = async (event) => {
   // Create Note
   const newNote = async (event) => {
     event.preventDefault();
-    const title = document.querySelector('NEED INPUT FORM').value.trim();
-    const desc = document.querySelector('NEED INPUT FORM').value.trim();
+    const title = document.querySelector('.note-title').value.trim();
+    const desc = document.querySelector('.note-textarea').value.trim();
     if (title, desc) {
-      const response = await fetch(`/BLANK`, {
+      const response = await fetch(`/api/notes`, {
         method: 'POST',
         body: JSON.stringify({ title, description }),
         headers: {
@@ -66,9 +66,32 @@ const delToDO = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/BLANK');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create a notes');
+      }
+    }
+  };
+// create study group
+  const createSG = async (event) => {
+    event.preventDefault();
+    const url = document.querySelector('#sgLink').value.trim();
+    const time = document.querySelector('#date').value.trim();
+    const studyPreference = document.querySelector('#sgStyle').value.trim();
+    const subject = document.querySelector('#sgSubject').value.trim();
+    if (url, time, studyPreference, subject) {
+      const response = await fetch(`/BLANK`, {
+        method: 'POST',
+        body: JSON.stringify({ url, time, studyPreference, subject_id }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to create a study group');
       }
     }
   };
@@ -89,5 +112,9 @@ const delToDO = async (event) => {
   .addEventListener('submit', newToDo);
 
   document
-  .querySelector('NEED CLASS')
+  .querySelector('#addNote')
   .addEventListener('submit', newNote);
+
+  document
+  .querySelector('.submitSG')
+  .addEventListener('submit', createSG);
