@@ -75,13 +75,14 @@ const delToDO = async (event) => {
 // create study group
   const createSG = async (event) => {
     event.preventDefault();
-    const url = document.querySelector('NEED INPUT FORM').value.trim();
-    const time = document.querySelector('NEED INPUT FORM').value.trim();
-    const studyPreference = document.querySelector('NEED INPUT FORM').value.trim();
-    if (url, time, studyPreference) {
+    const url = document.querySelector('#sgLink').value.trim();
+    const time = document.querySelector('#date').value.trim();
+    const studyPreference = document.querySelector('#sgStyle').value.trim();
+    const subject = document.querySelector('#sgSubject').value.trim();
+    if (url, time, studyPreference, subject) {
       const response = await fetch(`/BLANK`, {
         method: 'POST',
-        body: JSON.stringify({ url, time, studyPreference }),
+        body: JSON.stringify({ url, time, studyPreference, subject_id }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -115,5 +116,5 @@ const delToDO = async (event) => {
   .addEventListener('submit', newNote);
 
   document
-  .querySelector('NEED CLASS')
+  .querySelector('.submitSG')
   .addEventListener('submit', createSG);
