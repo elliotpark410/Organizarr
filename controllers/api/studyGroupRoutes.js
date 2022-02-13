@@ -1,55 +1,8 @@
 const router = require('express').Router();
-const { Subject, StudyGroup } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { StudyGroup } = require('../../models');
 
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const studyGroupData = await StudyGroup.findAll({
-      include: [
-        {
-          model: Subject,
-          attributes: ['name'],
-        },
-      ],
-    });
-    
-    const studyGroup = studyGroupData.get({ plain: true });
-
-    res.render('studygroup', {
-      ...studyGroup,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.get('/:id', async (req, res) => {
-  try {
-    const studyGroupData = await Subject.findByPk(req.params.id, {
-      include: [
-        {
-          model: Subject,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const studygroup = studyGroupData.get({ plain: true });
-
-    res.render('studygroup', {
-      ...studygroup,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newStudyGroup = await StudyGroup.create({
       ...req.body,
@@ -63,7 +16,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const studyGroupData = await StudyGroup.update({
       where: {
@@ -84,7 +37,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const studyGroupData = await StudyGroup.destroy({
       where: {

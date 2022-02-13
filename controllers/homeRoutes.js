@@ -1,7 +1,6 @@
 // Home Routes should only be for GET routes and res.render
 // res.json only for APIs
 // POST, PUT, or DELETE in API routes
-// move user post route to API
 // only need withAuth for dashboard, edit, post, or delete
 
 
@@ -11,27 +10,8 @@ const router = require('express').Router();
 // Export User model
 const { User, ToDo, Subject, StudyGroup, Notes } = require('../models');
 
-const withAuth = require('../utils/auth');
 
-// If user has session saved, then user will automatically be logged in. MOVE TO USER ROUTE
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-
-// Use withAuth middleware to prevent access to route
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -51,8 +31,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-// Use withAuth middleware to prevent access to route
-router.get('/studygroup', withAuth, async (req, res) => {
+router.get('/studygroup', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
