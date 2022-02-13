@@ -72,6 +72,28 @@ const delToDO = async (event) => {
       }
     }
   };
+// create study group
+  const createSG = async (event) => {
+    event.preventDefault();
+    const url = document.querySelector('NEED INPUT FORM').value.trim();
+    const time = document.querySelector('NEED INPUT FORM').value.trim();
+    const studyPreference = document.querySelector('NEED INPUT FORM').value.trim();
+    if (url, time, studyPreference) {
+      const response = await fetch(`/BLANK`, {
+        method: 'POST',
+        body: JSON.stringify({ url, time, studyPreference }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/BLANK');
+      } else {
+        alert('Failed to create a study group');
+      }
+    }
+  };
 
 
 
@@ -91,3 +113,7 @@ const delToDO = async (event) => {
   document
   .querySelector('NEED CLASS')
   .addEventListener('submit', newNote);
+
+  document
+  .querySelector('NEED CLASS')
+  .addEventListener('submit', createSG);
