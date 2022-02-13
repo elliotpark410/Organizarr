@@ -1,52 +1,7 @@
 const router = require('express').Router();
-const { ToDo, User } = require('../../models');
+const { ToDo } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// ALREADY IN HOME ROUTE UNDER DASHBOARDS. delete later
-router.get('/', async (req, res) => {
-  try {
-    const todoData = await ToDo.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-    
-    const todo = todoData.get({ plain: true });
-
-    res.render('todo', {
-      ...todo,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.get('/:id', async (req, res) => {
-  try {
-    const todoData = await ToDo.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const todo = todoData.get({ plain: true });
-
-    res.render('todo', {
-      ...todo,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 
 router.post('/', withAuth, async (req, res) => {
