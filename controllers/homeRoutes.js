@@ -10,7 +10,7 @@ const router = require('express').Router();
 // Export User model
 const { User, ToDo, Subject, StudyGroup, Notes } = require('../models');
 
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 
 router.get('/dashboard', withAuth, async (req, res) => {
