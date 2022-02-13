@@ -1,3 +1,4 @@
+<h1 class="title text-center mt-4"> ORGANIZARR </h1>
 <p class="title text-end m-3"> ((USERSNAMEHERE)) </p>
 
 
@@ -13,17 +14,28 @@
     </li>
 </ul>
 
-<h1 class="text-center mt-5 mb-5"> UPCOMING STUDY GROUPS </h1>
+<h2 class="text-center mt-5"> UPCOMING STUDY GROUPS</h2>
+<h3 class="text-center mb-5 ">as of <h3 class="currentDate"></h3>
+</h3>
 
 <div class="container col-7 mt-3 border" id="studyGroup">
-    <ul>
-        <li class="my-3 p-2"> Date: <span id="sgDate"> Enter HERE </span> </li>
-        <li class="my-3 p-2"> Time: <span id="sgTime"> Enter HERE </span> </li>
-        <li class="my-3 p-2"> Working On: <span id="sgWork"> Enter HERE </span> </li>
-        <li class="my-3 p-2"> Studying Style: <span id="sgStyle"> Enter HERE </span> </li>
-        <li class="my-3 p-2"> Meeting Link: <span id="sgLink"> Enter HERE </span> </li>
-
-    </ul>
+    <div class="row">
+        <div class="col-8">
+            <ul>
+                <li class="my-3 p-2"> <strong>Date:</strong><span id="sgDate"> Enter HERE </span> </li>
+                <li class="my-3 p-2"> <strong>Time:</strong><span id="sgTime"> Enter HERE </span> </li>
+                <li class="my-3 p-2"> <strong>Working On:</strong><span id="sgWork"> Enter HERE </span> </li>
+                <li class="my-3 p-2"> <strong>Studying Style:</strong><span id="sgStyle"> Enter HERE </span> </li>
+                <li class="my-3 p-2"> <strong>Meeting Link:</strong><span id="sgLink"> Enter HERE </span> </li>
+            </ul>
+        </div>
+        <div class="col-3 text-center m-auto">
+            <h4> Click to RSVP </h4>
+            <button id="rsvp" type="submit" class="btn" id="addNote">
+                <i class="fa fa-plus" style="font-size:45px;"></i>
+            </button>
+        </div>
+    </div>
 </div>
 
 <script src="public/js/index.js"></script>

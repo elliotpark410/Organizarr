@@ -1,7 +1,6 @@
-<p class="title text-end m-3"> ((USERSNAMEHERE)) </p>
+<h1 class="title text-center mt-4"> ORGANIZARR </h1>
 
-
-<ul class="nav navbar-dark bg-dark justify-content-center">
+<ul class="nav navbar-dark justify-content-center bgColor">
     <li class="nav-item">
         <button class="no-button" id="logout">logout</button>
     </li>
@@ -13,24 +12,34 @@
     </li>
 </ul>
 
+<div class="container mt-4 text-end">
+    <div class="usersName text-end">
+        User's name here
+    </div>
+    <div class="usersName text-end" id="currentDate">
+        current date here
+    </div>
+</div>
 
-{{!-- TO-DO'S SECTION --}}
+<!-- {{!-- TO-DO'S SECTION --}} -->
 <div class="container col-12">
     <div class="row justify-content-between mt-5">
 
-        <div class="col-5 border mt-3 p-4">
+        <div class="col-5 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
             <h3 class="text-center pb-3">My To-Do's:</h3>
-            <div class="row m-1">
+            <div class="row">
                 <div class="col-10">
                     <input id="toDo" type="text" class="col-8 form-control mb-3 border">
                     {{todo.description}}
                 </div>
-                <div class="col-2">
-                    <button type="submit" id="saveToDo">
-                        <i class="fa fa-save" style="font-size:36px;"></i>
+                <div class="col-1">
+                    <button type="submit" class="btn" id="saveToDo">
+                        <i class="fa fa-save" style="font-size:25px;"></i>
                     </button>
-                    <button type="click" id="deleteToDo">
-                        <i class="fa fa-trash align-right col-1 mt-2" data-id="{{todo.id}}" style="font-size:30px;">
+                </div>
+                <div class="col-1">
+                    <button type="click" class="btn" id="deleteToDo">
+                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
                         </i>
                     </button>
                 </div>
@@ -38,7 +47,7 @@
         </div>
 
 
-{{!-- START A STUDY GROUP SECTION --}}
+        <!-- {{!-- START A STUDY GROUP SECTION --}} -->
         <div class="col-6 border loginDiv mt-3 p-4">
             <h3 class="text-center pb-3">Start a Study Group</h3>
 
@@ -51,7 +60,8 @@
                         <form method="post">
                             <div class="form-group">
                                 <!-- Date input -->
-                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"
+                                    type="text" />
                             </div>
                         </form>
                     </div>
@@ -94,22 +104,21 @@
                     </select>
                 </div>
             </div>
+            <br>
 
             <div class="row">
-                <div class="col-3 p-1 text-end"> <strong>Meeting Link</strong></div>
-                <div class="col-8">
-                    <select class="col-12 p-2 custom-select" id="sgLink">
-                        <option selected> Select a service to get your link...</option>
-                        <option value="1">Zoom</option>
-                        <option value="2">Google Meet</option>
-                        <option value="3">Web Ex</option>
-                        <option value="4">Skype</option>
-                    </select>
-                </div>
+                <div class="col-11 p-2 text-end getLink"> <strong><a target="_blank"
+                            href="https://meet.google.com/">Click
+                            Here to generate a virtual meeting link</a></strong></div>
+            </div>
+
+            <div class="row">
+                <div class="col-3 p-1 text-end"> <strong>Location/Link:</strong></div>
+                <div class="col-8"><input id="sgTime" type="text" class="form-control mb-3"> </div>
             </div>
             <br>
             <div class="text-center">
-                <button type="submit" class="btn btn-info">Let's Study!</button>
+                <button type="submit" class="btn btn-dark text-white">Let's Study!</button>
             </div>
         </div>
     </div>
@@ -117,10 +126,11 @@
 
 <br><br>
 
+
 {{!-- NOTES SECTION --}}
 <div class="container col-12 mt-5 mb-5 border">
     <div class="row">
-        <h2 class="border p-3 text-center bg-info"> YOUR SAVED NOTES/RESOURCES </h2>
+        <h2 class="border p-3 text-center bgColor"> YOUR SAVED NOTES/RESOURCES </h2>
     </div>
 
     <div class="row">
@@ -147,7 +157,7 @@
                 {{/each}}
 
                 <div class="text-end col-1 mt-2">
-                    <button type="click" id="saveNote">
+                    <button type="click" class="btn" id="saveNote">
                         <i class="fa fa-save" style="font-size:36px;"></i>
                     </button>
                 </div>
@@ -162,5 +172,7 @@
 </div>
 
 
+
 <script src="../public/js/dashboard.js"></script>
 <script src="/public/js/logout.js"></script>
+<script src="/public/js/login.js"></script>
