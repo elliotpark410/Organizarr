@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
 });
 
 
-
 // post route so user can enter email and password 
 router.post('/login', async (req, res) => {
   try {

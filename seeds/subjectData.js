@@ -20,7 +20,7 @@ const subjectData = [
     name: 'Psychology'
   },
   {
-    Sports
+    name: 'Sports'
   },
   
 ];
