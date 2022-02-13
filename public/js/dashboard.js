@@ -3,7 +3,7 @@ const delToDO = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/todo/${id}`, {
+      const response = await fetch(`/api/todo/${id}`, {
         method: 'DELETE',
       });
   
@@ -19,7 +19,7 @@ const delToDO = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/notes/${id}`, {
+      const response = await fetch(`/api/notes/${id}`, {
         method: 'DELETE',
       });
   
@@ -76,20 +76,21 @@ const delToDO = async (event) => {
   const createSG = async (event) => {
     event.preventDefault();
     const url = document.querySelector('#sgLink').value.trim();
-    const time = document.querySelector('#date').value.trim();
+    const date = document.querySelector('#date').value.trim();
+    const time = document.querySelector('#sgTime').value.trim();
     const studyPreference = document.querySelector('#sgStyle').value.trim();
     const subject = document.querySelector('#sgSubject').value.trim();
     if (url, time, studyPreference, subject) {
-      const response = await fetch(`/BLANK`, {
+      const response = await fetch(`/api/studygroup`, {
         method: 'POST',
-        body: JSON.stringify({ url, time, studyPreference, subject_id }),
+        body: JSON.stringify({ url, date, time, studyPreference, subject_id }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/studygroup');
       } else {
         alert('Failed to create a study group');
       }
