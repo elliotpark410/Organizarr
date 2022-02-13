@@ -14,6 +14,7 @@
 </ul>
 
 
+{{!-- TO-DO'S SECTION --}}
 <div class="container col-12">
     <div class="row justify-content-between mt-5">
         <div class="col-5 border mt-3 p-4">
@@ -21,7 +22,7 @@
             <div class="row m-1">
                 <div class="col-10">
                     <input id="toDo" type="text" class="col-8 form-control mb-3 border">
-                    <!-- {{todo.description}} -->
+                    {{todo.description}}
                 </div>
                 <div class="col-2">
                     <button type="submit" id="saveToDo">
@@ -36,6 +37,7 @@
         </div>
 
 
+{{!-- START A STUDY GROUP SECTION --}}
         <div class="col-6 border loginDiv mt-3 p-4">
             <h3 class="text-center pb-3">Start a Study Group</h3>
 
@@ -114,6 +116,7 @@
 
 <br><br>
 
+{{!-- NOTES SECTION --}}
 <div class="container col-12 mt-5 mb-5 border">
     <div class="row">
         <h2 class="border p-3 text-center bg-info"> YOUR SAVED NOTES/RESOURCES </h2>
@@ -135,12 +138,12 @@
         <div class="col-8 border">
             <div class="row justify-content-between">
 
-                <!-- {{#each notes as |note|}} -->
+                {{#each notes as |note|}}
                 <div class="col-10">
                     <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
                     <textarea class="note-textarea" placeholder="Note Text"></textarea>
                 </div>
-                <!-- {{/each}} -->
+                {{/each}}
 
                 <div class="text-end col-1 mt-2">
                     <button type="click" id="saveNote">
