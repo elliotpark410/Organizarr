@@ -27,7 +27,7 @@
 
     <ul class="nav navbar-dark bg-dark justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active text-white" href="#">Log Out</a>
+            <button class="no-button" id="logout">logout</button>
         </li>
         <li class="nav-item">
             <a class="nav-link text-white" href="#">Dashboard</a>
@@ -48,11 +48,11 @@
                         <!-- {{todo.description}} -->
                     </div>
                     <div class="col-2">
-                        <button type="click" id="saveToDo">
+                        <button type="submit" id="saveToDo">
                             <i class="fa fa-save" style="font-size:36px;"></i>
                         </button>
                         <button type="click" id="deleteToDo">
-                            <i class="fa fa-trash align-right col-1 mt-2" data-id="[todo.id]" style="font-size:30px;">
+                            <i class="fa fa-trash align-right col-1 mt-2" data-id="{{todo.id}}" style="font-size:30px;">
                             </i>
                         </button>
                     </div>
@@ -151,7 +151,7 @@
 
                         <div class="row m-1">
                             <div class="toDoItem col-10 p-3 mb-1 border"> First One! </div>
-                            <i class="fa fa-trash align-right col-2 mt-2" id="deleteNote" style="font-size:28px;"> </i>
+                            <i class="fa fa-trash align-right col-2 mt-2" id="deleteNote" data-id="{{notes.id}}"style="font-size:28px;"> </i>
                         </div>
                     </div>
                 </ul>
@@ -183,6 +183,7 @@
 
 
     <script src="../public/js/dashboard.js"></script>
+    <script src="/public/js/logout.js"></script>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
