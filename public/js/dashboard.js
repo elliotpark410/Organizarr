@@ -36,7 +36,7 @@ const delToDO = async (event) => {
   
     const desc = document.querySelector('NEED INPUT FORM').value.trim();
     if (desc) {
-      const response = await fetch(`/BLANK`, {
+      const response = await fetch(`/api/todo`, {
         method: 'POST',
         body: JSON.stringify({ description }),
         headers: {
