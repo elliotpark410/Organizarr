@@ -20,6 +20,7 @@
     </div>
 </div>
 
+
 <!-- {{!-- TO-DO'S SECTION --}} -->
 <div class="container col-12">
     <div class="row justify-content-between mt-5">
@@ -31,6 +32,7 @@
                     <input id="toDo" type="text" class="col-8 form-control mb-3 border">
                     {{todo.description}}
                 </div>
+
                 <div class="col-1">
                     <button type="submit" class="btn" id="saveToDo">
                         <i class="fa fa-save" style="font-size:25px;"></i>
@@ -43,6 +45,23 @@
                     </button>
                 </div>
             </form>
+
+            {{#if todo.length}}
+            <div class="row" id="toDoItems">
+
+                {{#each todo}}
+                <div class="col-10">
+                    {{todo.id}}
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn" id="deleteToDo">
+                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
+                        </i>
+                    </button>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
         </div>
 
 
