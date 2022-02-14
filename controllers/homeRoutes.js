@@ -118,6 +118,8 @@ router.get('/studygroup', withAuth, async (req, res) => {
 
     // const studyGroups = studyGroupData.get({ plain: true });
 
+    console.log(studyGroups);
+
     res.render('studygroup', {
       studyGroups,
       logged_in: req.session.logged_in 

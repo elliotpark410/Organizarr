@@ -89,41 +89,20 @@ const delToDO = async (event) => {
       }
     }
   };
-// create study group
-  const createSG = async (event) => {
-    event.preventDefault();
-    const url = document.querySelector('#sgLink').value.trim();
-    const date = document.querySelector('#date').value.trim();
-    const time = document.querySelector('#sgTime').value.trim();
-    const studyPreference = document.querySelector('#sgStyle').value.trim();
-    const subject_name = document.querySelector('#sgSubject').value;
-    if (url, time, studyPreference, subject_name) {
-      const response = await fetch(`/api/studygroup`, {
-        method: 'POST',
-        body: JSON.stringify({ url, date, time, studyPreference, subject_name }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/studygroup');
-      } else {
-        alert('Failed to create a study group');
-      }
-    }
-  };
+
 
   
 
 
-  // document
-  // .getElementById('todoForm')
-  // .addEventListener('submit', newToDo);
+  document
+  .getElementById('todoForm')
+  .addEventListener('submit', newToDo);
 
-  // document
-  // .getElementById('deleteToDo')
-  // .addEventListener('click', delToDO);
+  var deleteTodo = document.querySelectorAll('.deleteToDo')
+
+  for (let i = 0; i < deleteTodo.length; i++) {
+    deleteTodo[i].addEventListener('click', delToDO);
+  }
 
   // document
   // .getElementById('addNote')
@@ -133,7 +112,6 @@ const delToDO = async (event) => {
   // .getElementById('deleteNote')
   // .addEventListener('click', delNotes);
 
-  document
-  .getElementById('submitSG')
-  .addEventListener('click', createSG);
+
+
 
