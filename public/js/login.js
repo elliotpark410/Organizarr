@@ -29,34 +29,15 @@ const loginFormHandler = async (event) => {
     document.location.replace('/signup');
   };
 
-  const signupFormHandler = async (event) => {
-    event.preventDefault();
-    console.log("test tes ")
-    const name = document.querySelector('.nameS').value.trim();
-    const email = document.querySelector('.emailS').value.trim();
-    const password = document.querySelector('.passS').value.trim();
   
-    if (name && email && password) {
-      const response = await fetch('/signup', {
-        method: 'POST',
-        body: JSON.stringify({ name, email, password }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard');
-        alert("yes")
-      } else {
-        alert(response.statusText);
-      }
-    }
-  };
   
   document.getElementById("login").addEventListener("click", loginFormHandler);
   // document
   //   .querySelector('#login')
   //   .addEventListener('button', loginFormHandler);
   document.getElementById("signUpBtn").addEventListener("click", takeSignUp);
+
+  
   // document
   //   .querySelector('#signUpBtn')
   //   .addEventListener('button', signupFormHandler);
