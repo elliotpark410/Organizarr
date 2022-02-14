@@ -22,10 +22,182 @@
 
 <body>
 
+    <h1 class="title text-center mt-4"> ORGANIZARR </h1>
 
-
-
-
+    <ul class="nav navbar-dark justify-content-center bgColor">
+        <li class="nav-item">
+            <button class="no-button" id="logout">logout</button>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="#">Study Groups</a>
+        </li>
+    </ul>
+    
+    <div class="container mt-4 text-end">
+        <div class="usersName text-end">
+            {{name}}
+        </div>
+        <div class="usersName text-end" id="currentDate">
+        </div>
+    </div>
+    
+    <!-- {{!-- TO-DO'S SECTION --}} -->
+    <div class="container col-12">
+        <div class="row justify-content-between mt-5">
+    
+            <div class="col-5 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
+                <h3 class="text-center pb-3">My To-Do's:</h3>
+                <form class="row" id="todoForm">
+                    <div class="col-10">
+                        <input id="toDo" type="text" class="col-8 form-control mb-3 border">
+                        {{todo.description}}
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn" id="saveToDo">
+                            <i class="fa fa-save" style="font-size:25px;"></i>
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn" id="deleteToDo">
+                            <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
+                            </i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+    
+    
+            <!-- {{!-- START A STUDY GROUP SECTION --}} -->
+            <div class="col-6 border loginDiv mt-3 p-4">
+                <h3 class="text-center pb-3">Start a Study Group</h3>
+    
+    
+    
+                <div class="row">
+                    <div class="toDoItem col-3 p-1 text-end"> <strong>Date</strong></div>
+                    <div class="col-8 mb-3">
+                        <div class="row">
+                            <form method="post">
+                                <div class="form-group">
+                                    <!-- Date input -->
+                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"
+                                        type="text" />
+                                </div>
+                            </form>
+                        </div>
+    
+    
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-3 p-1 text-end"> <strong>Time</strong></div>
+                    <div class="col-8"><input id="sgTime" type="text" class="form-control mb-3"> </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-3 p-1 text-end"> <strong>Subject:</strong></div>
+                    <div class="col-8">
+                        <select class="col-12 p-2 mb-3 custom-select" id="sgSubject">
+                            <option selected></option>
+                            <option value="1">Web Dev</option>
+                            <option value="2">Nursing</option>
+                            <option value="3">Math</option>
+                            <option value="4">Biology</option>
+                            <option value="5">History</option>
+                            <option value="6">Psychology</option>
+                            <option value="7">Sports</option>
+    
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-3 p-1 text-end"> <strong>Studying Style:</strong></div>
+                    <div class="col-8">
+                        <select class="col-12 p-2 mb-3 custom-select" id="sgStyle">
+                            <option selected> What do you prefer?</option>
+                            <option value="1">Quiet w/ minimal talking</option>
+                            <option value="2">Working through problems together</option>
+                            <option value="3">A combo of quiet & chatty </option>
+                            <option value="4">Open to anything! </option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+    
+                <div class="row">
+                    <div class="col-11 p-2 text-end getLink"> <strong><a target="_blank"
+                                href="https://meet.google.com/">Click
+                                Here to generate a virtual meeting link</a></strong></div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-3 p-1 text-end"> <strong>Location/Link:</strong></div>
+                    <div class="col-8"><input id="sgTime" type="text" class="form-control mb-3"> </div>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" id="submitSG" class="btn btn-dark text-white">Let's Study!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br><br>
+    
+    
+    {{!-- NOTES SECTION --}}
+    <div class="container col-12 mt-5 mb-5 border">
+        <div class="row">
+            <h2 class="border p-3 text-center bgColor"> YOUR SAVED NOTES/RESOURCES </h2>
+        </div>
+    
+        <div class="row">
+            <div class="col-4">
+                <ul class="list-group">
+                    <div class="row">
+    
+                        <div class="row m-1">
+                            <div class="toDoItem col-10 p-3 mb-1 border"> First One! </div>
+                            <i class="fa fa-trash align-right col-2 mt-2" id="deleteNote" data-id="{{notes.id}}"
+                                style="font-size:28px;"> </i>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-8 border">
+                <div class="row justify-content-between">
+    
+                    {{#each notes as |note|}}
+                    <div class="col-10">
+                        <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
+                        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+                    </div>
+                    {{/each}}
+    
+                    <div class="text-end col-1 mt-2">
+                        <button type="click" class="btn" id="saveNote">
+                            <i class="fa fa-save" style="font-size:36px;"></i>
+                        </button>
+                    </div>
+                    <div class="text-end col-1 mt-2">
+                        <button type="submit" class="btn" id="addNote">
+                            <i class="fa fa-plus" style="font-size:36px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/logout.js"></script>
 
 
 
@@ -48,6 +220,10 @@
             <a class="text-dark" href="https://www.linkedin.com/in/lesliejpatino/">Leslie</a>
         </div>
     </footer>
+
+    <!-- Day JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+    <script src="./public/js/currentDate.js"></script>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
