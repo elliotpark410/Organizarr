@@ -54,6 +54,17 @@ const delToDO = async (event) => {
       }
     }
   };
+
+  const displayToDo = () => {
+    const response = await fetch(`/api/todo`, {
+      method: 'GET',
+      body: JSON.stringify({ description: desc }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
   // Create Note
   const newNote = async (event) => {
     event.preventDefault();

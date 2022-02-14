@@ -32,13 +32,13 @@ const loginFormHandler = async (event) => {
   
   
   document.getElementById("login").addEventListener("click", loginFormHandler);
-  // document
-  //   .querySelector('#login')
-  //   .addEventListener('button', loginFormHandler);
+ 
   document.getElementById("signUpBtn").addEventListener("click", takeSignUp);
 
   
-  // document
-  //   .querySelector('#signUpBtn')
-  //   .addEventListener('button', signupFormHandler);
-  
+  // carousel js
+// var myCarousel = document.querySelector('#carouselProjects')
+// var carousel = new bootstrap.Carousel(myCarousel, {
+//   interval: 3000,
+//   wrap: false
+// });

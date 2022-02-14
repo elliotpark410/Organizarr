@@ -12,41 +12,58 @@
   </li>
 </ul>
 
-<div class='container mt-4 text-end'>
-  <div class='usersName text-end'>
-    {{name}}
-  </div>
-  <div class='usersName text-end' id='currentDate'>
-    current date here
-  </div>
+<div class="container mt-4 text-end">
+    <div class="usersName text-end">
+        {{name}}
+    </div>
+    <div class="usersName text-end" id="currentDate">
+    </div>
 </div>
 
-<!-- {{!-- TO-DO'S SECTION --}} -->
-<div class='container col-12'>
-  <div class='row justify-content-between mt-5'>
 
-    <div class='col-5 mt-3 p-4 bgColor' style='border: solid 3px lightgray;'>
-      <h3 class='text-center pb-3'>My To-Do's:</h3>
-      <form class='row' id='todoForm'>
-        <div class='col-10'>
-          <input id='toDo' type='text' class='col-8 form-control mb-3 border' />
-          {{todo.description}}
+<!-- {{!-- TO-DO'S SECTION --}} -->
+<div class="container col-12">
+    <div class="row justify-content-between mt-5">
+
+        <div class="col-5 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
+            <h3 class="text-center pb-3">My To-Do's:</h3>
+            <form class="row" id="todoForm">
+                <div class="col-10">
+                    <input id="toDo" type="text" class="col-8 form-control mb-3 border">
+                    {{todo.description}}
+                </div>
+
+                <div class="col-1">
+                    <button type="submit" class="btn" id="saveToDo">
+                        <i class="fa fa-save" style="font-size:25px;"></i>
+                    </button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn" id="deleteToDo">
+                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
+                        </i>
+                    </button>
+                </div>
+            </form>
+
+            {{#if todo.length}}
+            <div class="row" id="toDoItems">
+
+                {{#each todo}}
+                <div class="col-10">
+                    {{todo.id}}
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn" id="deleteToDo">
+                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
+                        </i>
+                    </button>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
         </div>
-        <div class='col-1'>
-          <button type='submit' class='btn' id='saveToDo'>
-            <i class='fa fa-save' style='font-size:25px;'></i>
-          </button>
-        </div>
-        {{!-- <div class='col-1'>
-          <button type='button' class='btn' id='deleteToDo'>
-            <i
-              class='fa fa-trash'
-              data-id='{{todo.id}}'
-              style='font-size:25px;'
-            >
-            </i>
-          </button>
-        </div> --}}
+        
       </form>
       {{! list out todos }}
       {{#if todos.length}}
@@ -202,15 +219,28 @@
         </div>
         {{!-- {{/each}} --}}
 
-        <div class='text-end col-1 mt-2'>
-          <button type='click' class='btn' id='saveNote'>
-            <i class='fa fa-save' style='font-size:36px;'></i>
-          </button>
-        </div>
-        <div class='text-end col-1 mt-2'>
-          <button type='submit' class='btn' id='addNote'>
-            <i class='fa fa-plus' style='font-size:36px;'></i>
-          </button>
+        <div class="col-8 border">
+            <div class="row justify-content-between">
+
+                {{!-- {{#each notes as |note|}} --}}
+                <div class="col-10">
+                    <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
+                    <textarea class="note-textarea" placeholder="Note Text"></textarea>
+                </div>
+                {{!-- {{/each}} --}}
+
+                <div class="text-end col-1 mt-2">
+                    <button type="click" class="btn" id="saveNote">
+                        <i class="fa fa-save" style="font-size:36px;"></i>
+                    </button>
+                </div>
+                <div class="text-end col-1 mt-2">
+                    <button type="submit" class="btn" id="addNote">
+                        <i class="fa fa-plus" style="font-size:36px;"></i>
+                    </button>
+                </div>
+            </div>
+
         </div>
       </div>
     </div>
