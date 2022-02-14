@@ -6,8 +6,8 @@ const { User } = require('../../models');
 
 
 
-// If user has session saved, then user will automatically be logged in.
-router.post('/', async (req, res) => {
+
+router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -21,6 +21,8 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
 
 
 // If user doesn't have session saved, then post route for login so user can enter email and password 
