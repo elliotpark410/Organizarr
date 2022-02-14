@@ -32,6 +32,7 @@ const delToDO = async (event) => {
       }
     }
   };
+
 // add Todo
   const newToDo = async (event) => {
     console.log('testing save todos button');
@@ -101,23 +102,21 @@ const delToDO = async (event) => {
   };
 
 
-
+  document
+  .getElementById('todoForm')
+  .addEventListener('submit', newToDo);
 
   document
   .getElementById('deleteToDo')
   .addEventListener('click', delToDO);
 
   document
+  .getElementById('addNote')
+  .addEventListener('click', newNote);
+
+  document
   .getElementById('deleteNote')
   .addEventListener('click', delNotes);
-
-  document
-  .querySelector('#todoForm')
-  .addEventListener('submit', newToDo);
-
-  document
-  .querySelector('#addNote')
-  .addEventListener('click', newNote);
 
   document
   .getElementById('submitSG')
