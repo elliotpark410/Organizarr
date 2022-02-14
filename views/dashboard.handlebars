@@ -14,7 +14,7 @@
 
 <div class="container mt-4 text-end">
     <div class="usersName text-end">
-        User's name here
+        {{name}}
     </div>
     <div class="usersName text-end" id="currentDate">
         current date here
@@ -27,7 +27,7 @@
 
         <div class="col-5 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
             <h3 class="text-center pb-3">My To-Do's:</h3>
-            <div class="row">
+            <form class="row" id="todoForm">
                 <div class="col-10">
                     <input id="toDo" type="text" class="col-8 form-control mb-3 border">
                     {{todo.description}}
@@ -38,12 +38,12 @@
                     </button>
                 </div>
                 <div class="col-1">
-                    <button type="click" class="btn" id="deleteToDo">
+                    <button type="button" class="btn" id="deleteToDo">
                         <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
                         </i>
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
 
 
@@ -118,7 +118,7 @@
             </div>
             <br>
             <div class="text-center">
-                <button type="submit" class="btn btn-dark text-white">Let's Study!</button>
+                <button type="submit" id="submitSG" class="btn btn-dark text-white">Let's Study!</button>
             </div>
         </div>
     </div>
@@ -173,6 +173,5 @@
 
 
 
-<script src="../public/js/dashboard.js"></script>
-<script src="/public/js/logout.js"></script>
-<script src="/public/js/login.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="/js/logout.js"></script>
