@@ -1,10 +1,10 @@
 <h1 class="title text-center mt-4"> ORGANIZARR </h1>
-<p class="title text-end m-3"> ((USERSNAMEHERE)) </p>
+<p class="title text-end m-3"> {{name}} </p>
 
 
 <ul class="nav navbar-dark bg-dark justify-content-center">
     <li class="nav-item">
-        <a class="nav-link text-white" href="#">Log Out</a>
+        <button class='no-button' id='logout'>logout</button>
     </li>
     <li class="nav-item">
         <a class="nav-link text-white" href="#">Dashboard</a>
@@ -22,11 +22,11 @@
     <div class="row">
         <div class="col-8">
             <ul>
-                <li class="my-3 p-2"> <strong>Date:</strong><span id="sgDate"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Time:</strong><span id="sgTime"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Working On:</strong><span id="sgWork"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Studying Style:</strong><span id="sgStyle"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Meeting Link:</strong><span id="sgLink"> Enter HERE </span> </li>
+                <li class="my-3 p-2"> <strong>Date:</strong><span id="sgDate"> {{date}} </span> </li>
+                <li class="my-3 p-2"> <strong>Time:</strong><span id="sgTime"> {{time}} </span> </li>
+                <li class="my-3 p-2"> <strong>Working On:</strong><span id="sgWork"> {{subject_name}} </span> </li>
+                <li class="my-3 p-2"> <strong>Studying Style:</strong><span id="sgStyle"> {{studyPreference}} </span> </li>
+                <li class="my-3 p-2"> <strong>Meeting Link:</strong><span id="sgLink"> {{url}} </span> </li>
             </ul>
         </div>
         <div class="col-3 text-center m-auto">
@@ -38,4 +38,5 @@
     </div>
 </div>
 
-<script src="public/js/index.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src='/js/logout.js'></script>

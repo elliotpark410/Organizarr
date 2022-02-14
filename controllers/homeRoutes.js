@@ -88,18 +88,37 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
+// router.get('/studygroup', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const studyGroupData = await StudyGroup.findAll({
+//       include: [{ model: Subject }],
+//     });
+
+//     const studyGroup = studyGroupData.get({ plain: true });
+
+//     res.render('studygroup', {
+//       ...studyGroup,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
 router.get('/studygroup', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const studyGroupData = await StudyGroup.findAll({
-      include: [{ model: Subject }],
+      include: [{ model: User, attributes: ['name'], }],
     });
 
-    const studyGroup = studyGroupData.get({ plain: true });
+    const studyGroups = studyGroupData.map((studyGroup) => studyGroup.get({ plain: true }
+      ));
 
     res.render('studygroup', {
-      ...studyGroup,
-      logged_in: true
+      studyGroups,
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
