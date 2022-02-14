@@ -117,21 +117,21 @@ const delToDO = async (event) => {
   
 
 
-  document
-  .getElementById('todoForm')
-  .addEventListener('submit', newToDo);
+  // document
+  // .getElementById('todoForm')
+  // .addEventListener('submit', newToDo);
 
-  document
-  .getElementById('deleteToDo')
-  .addEventListener('click', delToDO);
+  // document
+  // .getElementById('deleteToDo')
+  // .addEventListener('click', delToDO);
 
-  document
-  .getElementById('addNote')
-  .addEventListener('click', newNote);
+  // document
+  // .getElementById('addNote')
+  // .addEventListener('click', newNote);
 
-  document
-  .getElementById('deleteNote')
-  .addEventListener('click', delNotes);
+  // document
+  // .getElementById('deleteNote')
+  // .addEventListener('click', delNotes);
 
   document
   .getElementById('submitSG')

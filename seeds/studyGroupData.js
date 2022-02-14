@@ -7,6 +7,7 @@ const studyGroupData = [
     time: '9:00pm',
     studyPreference:"active",
     subject_name: "Web Dev",
+    user_id: 1,
   },
   {
     url: 'https://meet.google.com/evm-okdf-ttj',
@@ -14,6 +15,7 @@ const studyGroupData = [
     time: '8:00pm',
     studyPreference:"quiet",
     subject_name: "Nursing",
+    user_id: 2,
   },
   {
     url: 'https://meet.google.com/evm-okdf-ttj',
@@ -21,6 +23,7 @@ const studyGroupData = [
     time: '7:00am',
     studyPreference:"singing",
     subject_name: "Math",
+    user_id: 3,
   },
   {
     url: 'https://meet.google.com/evm-okdf-ttj',
@@ -28,6 +31,7 @@ const studyGroupData = [
     time: '1:00am',
     studyPreference:"collabortive",
     subject_name: "Biology",
+    user_id: 4,
   },
   
 ];

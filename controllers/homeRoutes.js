@@ -116,11 +116,14 @@ router.get('/studygroup', withAuth, async (req, res) => {
     const studyGroups = studyGroupData.map((studyGroup) => studyGroup.get({ plain: true }
       ));
 
+    // const studyGroups = studyGroupData.get({ plain: true });
+
     res.render('studygroup', {
       studyGroups,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
