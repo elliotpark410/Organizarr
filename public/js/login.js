@@ -1,5 +1,5 @@
 const loginFormHandler = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
   
     // Collect values from the login form
     const email = document.querySelector('#userEmail').value.trim();
@@ -24,9 +24,14 @@ const loginFormHandler = async (event) => {
     }
   };
   
+  const takeSignUp = () =>{
+    console.log('taking to signup page');
+    document.location.replace('/signup');
+  };
+
   const signupFormHandler = async (event) => {
     event.preventDefault();
-  
+    console.log("test tes ")
     const name = document.querySelector('.nameS').value.trim();
     const email = document.querySelector('.emailS').value.trim();
     const password = document.querySelector('.passS').value.trim();
@@ -40,17 +45,19 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/dashboard');
+        alert("yes")
       } else {
         alert(response.statusText);
       }
     }
   };
   
-  document
-    .querySelector('.login')
-    .addEventListener('submit', loginFormHandler);
-  
-  document
-    .querySelector('.signup')
-    .addEventListener('submit', signupFormHandler);
+  document.getElementById("login").addEventListener("click", loginFormHandler);
+  // document
+  //   .querySelector('#login')
+  //   .addEventListener('button', loginFormHandler);
+  document.getElementById("signUpBtn").addEventListener("click", takeSignUp);
+  // document
+  //   .querySelector('#signUpBtn')
+  //   .addEventListener('button', signupFormHandler);
   
