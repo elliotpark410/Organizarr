@@ -4,12 +4,21 @@ const ToDo = require('./ToDo');
 const Notes = require('./Notes');
 const StudyGroup = require('./StudyGroup');
 
-StudyGroup.belongsTo(Subject, {
-  foreignKey: 'subject_id'
+// StudyGroup.belongsTo(Subject, {
+//   foreignKey: 'subject_id'
+// });
+
+// Subject.hasMany(StudyGroup,{
+//   foreignKey: 'subject_id'
+// });
+
+
+StudyGroup.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-Subject.hasMany(StudyGroup,{
-  foreignKey: 'subject_id'
+User.hasMany(StudyGroup,{
+  foreignKey: 'user_id'
 });
 
 

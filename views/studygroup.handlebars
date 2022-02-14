@@ -1,41 +1,67 @@
-<h1 class="title text-center mt-4"> ORGANIZARR </h1>
-<p class="title text-end m-3"> ((USERSNAMEHERE)) </p>
+<h1 class='title text-center mt-4'> ORGANIZARR </h1>
+<p class='title text-end m-3'> {{name}} </p>
 
-
-<ul class="nav navbar-dark bg-dark justify-content-center">
-    <li class="nav-item">
-        <a class="nav-link text-white" href="#">Log Out</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white" href="#">Dashboard</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active text-white" href="#">Study Groups</a>
-    </li>
+<ul class='nav navbar-dark bg-dark justify-content-center'>
+  <li class='nav-item'>
+    <button class='no-button' id='logout'>logout</button>
+  </li>
+  <li class='nav-item'>
+    <a class='nav-link text-white' href='#'>Dashboard</a>
+  </li>
+  <li class='nav-item'>
+    <a class='nav-link active text-white' href='#'>Study Groups</a>
+  </li>
 </ul>
 
-<h2 class="text-center mt-5"> UPCOMING STUDY GROUPS</h2>
-<h3 class="text-center mb-5 ">as of <h3 class="currentDate"></h3>
+<h2 class='text-center mt-5'> UPCOMING STUDY GROUPS</h2>
+<h3 class='text-center mb-5'>as of
+  <h3 class='currentDate'></h3>
 </h3>
 
-<div class="container col-7 mt-3 border" id="studyGroup">
-    <div class="row">
-        <div class="col-8">
-            <ul>
-                <li class="my-3 p-2"> <strong>Date:</strong><span id="sgDate"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Time:</strong><span id="sgTime"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Working On:</strong><span id="sgWork"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Studying Style:</strong><span id="sgStyle"> Enter HERE </span> </li>
-                <li class="my-3 p-2"> <strong>Meeting Link:</strong><span id="sgLink"> Enter HERE </span> </li>
-            </ul>
-        </div>
-        <div class="col-3 text-center m-auto">
-            <h4> Click to RSVP </h4>
-            <button id="rsvp" type="submit" class="btn" id="addNote">
-                <i class="fa fa-plus" style="font-size:45px;"></i>
-            </button>
-        </div>
-    </div>
-</div>
+{{#each studyGroups as |studyGroup|}}
+  <div class='container col-7 mt-3 border' id='studyGroup'>
 
-<script src="public/js/index.js"></script>
+    <div class='row'>
+
+      <div class='col-8'>
+
+        <ul>
+          <li class='my-3 p-2'>
+          
+            <strong>Date:</strong><span class='sgDate'> {{studyGroup.date}} </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Time:</strong><span class='sgTime'> {{studyGroup.time}} </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Working On:</strong><span class='sgWork'>
+              {{studyGroup.subject_name}}
+            </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Studying Style:</strong><span class='sgStyle'>
+              {{studyGroup.studyPreference}}
+            </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Meeting Link:</strong><span class='sgLink'>
+              {{studyGroup.url}}
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class='col-3 text-center m-auto'>
+        <h4> Click to RSVP </h4>
+        <button type='submit' class='btn addNote'>
+          <i class='fa fa-plus' style='font-size:45px;'></i>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+{{/each}}
+
+<script src='/js/dashboard.js'></script>
+<script src='/js/logout.js'></script>

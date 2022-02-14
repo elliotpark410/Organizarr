@@ -16,8 +16,8 @@
     <div class="usersName text-end">
         {{name}}
     </div>
-    <div class="usersName text-end" id="currentDate">
-    </div>
+    {{!-- <p class="usersName text-end" id="currentDate">
+    </p> --}}
 </div>
 
 
@@ -38,40 +38,15 @@
                         <i class="fa fa-save" style="font-size:25px;"></i>
                     </button>
                 </div>
-                <div class="col-1">
-                    <button type="button" class="btn" id="deleteToDo">
-                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
-                        </i>
-                    </button>
-                </div>
             </form>
 
-            {{#if todo.length}}
-            <div class="row" id="toDoItems">
-
-                {{#each todo}}
-                <div class="col-10">
-                    {{todo.id}}
-                </div>
-                <div class="col-1">
-                    <button type="button" class="btn" id="deleteToDo">
-                        <i class="fa fa-trash" data-id="{{todo.id}}" style="font-size:25px;">
-                        </i>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-            {{/if}}
-        </div>
-        
-      </form>
-      {{! list out todos }}
+            {{! list out todos }}
       {{#if todos.length}}
         {{#each todos as |todo|}}
           <ul class='list-group'>
             <li class='list-group-item'>{{todo.description}}
-              <div class='col-1'>
-                <button type='button' class='btn' id='deleteToDo'>
+              <span class='col-1'>
+                <button type='button' class='btn deleteToDo' data-id='{{todo.id}}'>
                   <i
                     class='fa fa-trash'
                     data-id='{{todo.id}}'
@@ -79,11 +54,15 @@
                   >
                   </i>
                 </button>
-              </div>
+              </span>
             </li>
           </ul>
         {{/each}}
       {{/if}}
+        </div>
+        
+      </form>
+     
     </div>
 
     <!-- {{!-- START A STUDY GROUP SECTION --}} -->
@@ -161,7 +140,7 @@
       <div class='row'>
         <div class='col-3 p-1 text-end'> <strong>Location/Link:</strong></div>
         <div class='col-8'><input
-            id='sgTime'
+            id='sgLink'
             type='text'
             class='form-control mb-3'
           />
@@ -249,3 +228,7 @@
 
 <script src='/js/dashboard.js'></script>
 <script src='/js/logout.js'></script>
+
+{{!-- this is for creating study group function --}}
+<script src='/js/submit.js'></script>
+{{!-- <script src='/js/currentDate.js'></script> --}}

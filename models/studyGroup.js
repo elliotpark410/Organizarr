@@ -30,13 +30,22 @@ StudyGroup.init(
         type: DataTypes.STRING,
         allowNull: false, 
     },
-    subject_id:{
-      type: DataTypes.INTEGER,
-      references:{
-        model: 'subject',
-        key:"id"
-    },
+    subject_name:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    //   references:{
+    //     model: 'subject',
+    //     key:"name"
+    // },
+
   },
+  user_id: {
+    type: DataTypes.INTEGER,
+    references: {
+        model: 'user',
+        key: 'id',
+    }
+}
 
     
 },

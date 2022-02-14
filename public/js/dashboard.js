@@ -16,6 +16,8 @@ const delToDO = async (event) => {
       }
     }
   };
+
+  
 // Delete a note
   const delNotes = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -56,15 +58,15 @@ const delToDO = async (event) => {
     }
   };
 
-  const displayToDo = () => {
-    const response = await fetch(`/api/todo`, {
-      method: 'GET',
-      body: JSON.stringify({ description: desc }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  }
+  // const displayToDo = () => {
+  //   const response = await fetch(`/api/todo`, {
+  //     method: 'GET',
+  //     body: JSON.stringify({ description: desc }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  // }
 
   // Create Note
   const newNote = async (event) => {
@@ -87,49 +89,29 @@ const delToDO = async (event) => {
       }
     }
   };
-// create study group
-  const createSG = async (event) => {
-    event.preventDefault();
-    const url = document.querySelector('#sgLink').value.trim();
-    const date = document.querySelector('#date').value.trim();
-    const time = document.querySelector('#sgTime').value.trim();
-    const studyPreference = document.querySelector('#sgStyle').value.trim();
-    const subject = document.querySelector('#sgSubject').value.trim();
-    if (url, time, studyPreference, subject) {
-      const response = await fetch(`/api/studygroup`, {
-        method: 'POST',
-        body: JSON.stringify({ url, date, time, studyPreference, subject_id }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+
+
   
-      if (response.ok) {
-        document.location.replace('/studygroup');
-      } else {
-        alert('Failed to create a study group');
-      }
-    }
-  };
 
 
   document
   .getElementById('todoForm')
   .addEventListener('submit', newToDo);
 
-  document
-  .getElementById('deleteToDo')
-  .addEventListener('click', delToDO);
+  var deleteTodo = document.querySelectorAll('.deleteToDo')
 
-  document
-  .getElementById('addNote')
-  .addEventListener('click', newNote);
+  for (let i = 0; i < deleteTodo.length; i++) {
+    deleteTodo[i].addEventListener('click', delToDO);
+  }
 
-  document
-  .getElementById('deleteNote')
-  .addEventListener('click', delNotes);
+  // document
+  // .getElementById('addNote')
+  // .addEventListener('click', newNote);
 
-  document
-  .getElementById('submitSG')
-  .addEventListener('click', createSG);
+  // document
+  // .getElementById('deleteNote')
+  // .addEventListener('click', delNotes);
+
+
+
 
