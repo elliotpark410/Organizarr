@@ -6,10 +6,7 @@
     <button class='no-button' id='logout'>logout</button>
   </li>
   <li class='nav-item'>
-    <a class='nav-link text-white' href='#'>Dashboard</a>
-  </li>
-  <li class='nav-item'>
-    <a class='nav-link active text-white' href='#'>Study Groups</a>
+    <a class='nav-link text-white' href='/dashboard'>Dashboard</a>
   </li>
 </ul>
 
@@ -44,8 +41,8 @@
             </span>
           </li>
           <li class='my-3 p-2'>
-            <strong>Meeting Link:</strong><span class='sgLink'>
-              {{studyGroup.url}}
+            <strong>Meeting:</strong><span class='sgLink'>
+              <a href={{studyGroup.url}} target="_blank"> Link </a>
             </span>
           </li>
         </ul>

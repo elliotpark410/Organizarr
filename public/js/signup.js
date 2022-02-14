@@ -14,7 +14,7 @@ const signupFormHandler = async (event) => {
       console.log(`saved ${email}`);
       if (response.ok) {
         document.location.replace('/dashboard');
-        alert("yes")
+        console.log("info saved successful !")
       } else {
         alert(response.statusText);
       }
