@@ -36,9 +36,4 @@ const loginFormHandler = async (event) => {
   document.getElementById("signUpBtn").addEventListener("click", takeSignUp);
 
   
-  // carousel js
-// var myCarousel = document.querySelector('#carouselProjects')
-// var carousel = new bootstrap.Carousel(myCarousel, {
-//   interval: 3000,
-//   wrap: false
-// });
+  

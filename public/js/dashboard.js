@@ -102,7 +102,7 @@ const delToDO = async (event) => {
 
   for (let i = 0; i < deleteTodo.length; i++) {
     deleteTodo[i].addEventListener('click', delToDO);
-  }
+  };
 
   // document
   // .getElementById('addNote')
