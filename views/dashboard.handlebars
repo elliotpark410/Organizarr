@@ -17,7 +17,6 @@
         {{name}}
     </div>
     <div class="usersName text-end" id="currentDate">
-        current date here
     </div>
 </div>
 
@@ -149,12 +148,12 @@
         <div class="col-8 border">
             <div class="row justify-content-between">
 
-                {{#each notes as |note|}}
+                {{!-- {{#each notes as |note|}} --}}
                 <div class="col-10">
                     <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
                     <textarea class="note-textarea" placeholder="Note Text"></textarea>
                 </div>
-                {{/each}}
+                {{!-- {{/each}} --}}
 
                 <div class="text-end col-1 mt-2">
                     <button type="click" class="btn" id="saveNote">
