@@ -1,4 +1,3 @@
-var dayjs = require('dayjs')
 
 // Delete Todo List
 const delToDO = async (event) => {
@@ -40,14 +39,14 @@ const delToDO = async (event) => {
     if (desc) {
       const response = await fetch(`/api/todo`, {
         method: 'POST',
-        body: JSON.stringify({ description }),
+        body: JSON.stringify({ description: desc }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload();
       } else {
         alert('Failed to create toDO');
       }
@@ -61,7 +60,7 @@ const delToDO = async (event) => {
     if (title, desc) {
       const response = await fetch(`/api/notes`, {
         method: 'POST',
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify({ title: title, description: desc }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -103,21 +102,27 @@ const delToDO = async (event) => {
 
 
   document
-  .getElementById('#deleteToDo')
+  .getElementById('deleteToDo')
   .addEventListener('click', delToDO);
 
   document
-  .getElementById('#deleteNote')
+  .getElementById('deleteNote')
   .addEventListener('click', delNotes);
 
   document
-  .querySelector('#saveToDo')
+  .querySelector('#todoForm')
   .addEventListener('submit', newToDo);
 
   document
   .querySelector('#addNote')
-  .addEventListener('submit', newNote);
+  .addEventListener('click', newNote);
 
   document
-  .querySelector('.submitSG')
-  .addEventListener('submit', createSG);
+  .getElementById('submitSG')
+  .addEventListener('click', createSG);
+
+// var cat = "tommy"
+//   var newObj ={
+//     cat: cat
+//     // cat
+//   }

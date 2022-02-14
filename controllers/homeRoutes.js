@@ -23,10 +23,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-router.get('/dashboard/:id', withAuth, async (req, res) => {
+/***
+ * user object
+ * @property
+ * name
+ * email
+ * notes[]
+ * todos[]
+ */
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: ToDo }, { model: Notes }],
     });
