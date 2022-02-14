@@ -8,6 +8,10 @@ li {
     list-style-type: none;
 }
 
+title {
+  color: purple;
+}
+
 .note-textarea,
 .note-title {
   color: #000000;

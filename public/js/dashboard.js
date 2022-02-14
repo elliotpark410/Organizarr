@@ -1,6 +1,7 @@
 
 // Delete Todo List
 const delToDO = async (event) => {
+  console.log('testing delete todo button');
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -33,6 +34,7 @@ const delToDO = async (event) => {
   };
 // add Todo
   const newToDo = async (event) => {
+    console.log('testing save todos button');
     event.preventDefault();
   
     const desc = document.querySelector('#toDo').value.trim();
@@ -132,8 +134,3 @@ const delToDO = async (event) => {
   .getElementById('submitSG')
   .addEventListener('click', createSG);
 
-// var cat = "tommy"
-//   var newObj ={
-//     cat: cat
-//     // cat
-//   }
