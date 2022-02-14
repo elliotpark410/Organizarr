@@ -1,4 +1,4 @@
-<h1 class='title text-center mt-4'> ORGANIZARR </h1>
+<h1 class='title text-center m-4'> ORGANIZARR </h1>
 
 <ul class='nav navbar-dark justify-content-center bgColor'>
   <li class='nav-item'>
@@ -12,12 +12,12 @@
   </li>
 </ul>
 
-<div class="container mt-4 text-end">
+<div class="container mt-5 mb-5 text-end">
   <div class="usersName text-end">
-    Welcome Back {{name}}!
+    <strong>
+    <h4> Welcome Back {{name}}! </h4>
   </div>
-  {{!-- <p class="usersName text-end" id="currentDate">
-  </p> --}}
+  <em><h5 class="text-end" id="todaysDate"></h5></em></strong>
 </div>
 
 
@@ -202,5 +202,5 @@
 
 {{!-- this is for creating study group function --}}
 <script src='/js/submit.js'></script>
-{{!--
-<script src='/js/currentDate.js'></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+<script src='/js/currentDate.js'></script>
