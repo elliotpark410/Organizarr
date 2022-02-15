@@ -6,16 +6,14 @@ const studyGroupData = [
     date: '02/14/2022',
     time: '9:00pm',
     studyPreference:"Quiet w/ minimal talking",
-    subject_name: "Web Dev",
-    user_id: 1,
+    subject_id: 1,
   },
   {
     url: 'https://meet.google.com/evm-okdf-ttj',
     date: '02/15/2022',
     time: '8:00pm',
     studyPreference:"Open to anything!",
-    subject_name: "Nursing",
-    user_id: 2,
+    subject_id: 2,
   },  
 ];
 
