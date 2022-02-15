@@ -5,9 +5,8 @@ const createSG = async (event) => {
   const date = document.querySelector('#date').value.trim();
   const time = document.querySelector('#sgTime').value.trim();
   const studyPreference = document.querySelector('#sgStyle').value.trim();
-  console.log(studyPreference);
-  const subject_name = document.querySelector('#sgSubject').value;
-  if (url, time, studyPreference, subject_name) {
+  const subject_id = document.querySelector('#sgSubject').value;
+  if (url, date, time, studyPreference, subject_id) {
     const response = await fetch(`/api/studygroup`, {
       method: 'POST',
       body: JSON.stringify({ url, date, time, studyPreference, subject_id }),
