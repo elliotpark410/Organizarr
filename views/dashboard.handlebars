@@ -43,7 +43,7 @@
       {{#if todos.length}}
       {{#each todos as |todo|}}
       <ul class='list-group'>
-        <li class='list-group-item'>{{todo.description}}
+        <li class='list-group-item todoListItem'>{{todo.description}}
           <span class='col-1'>
             <button type='button' class='btn deleteToDo' data-id='{{todo.id}}'>
               <i class='fa fa-trash' data-id='{{todo.id}}' style='font-size:25px;'>

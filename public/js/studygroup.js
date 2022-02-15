@@ -6,6 +6,9 @@ const createSG = async (event) => {
   const time = document.querySelector('#sgTime').value.trim();
   const studyPreference = document.querySelector('#sgStyle').value.trim();
   const subject_id = document.querySelector('#sgSubject').value;
+
+
+
   if (url, date, time, studyPreference, subject_id) {
     const response = await fetch(`/api/studygroup`, {
       method: 'POST',
@@ -24,6 +27,12 @@ const createSG = async (event) => {
 };
 
 
+
+
 document
 .getElementById('submitSG')
 .addEventListener('click', createSG);
+
+
+
+
