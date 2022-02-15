@@ -1,5 +1,6 @@
 <h1 class='title text-center m-4'> ORGANIZARR </h1>
 
+{{!-- hfColor--}}
 <ul class='nav navbar justify-content-center bgColor'>
   <li class='nav-item'>
     <button class='no-button' id='logout'>logout</button>
@@ -23,7 +24,7 @@
 <!-- {{!-- TO-DO'S SECTION --}} -->
 <div class="container col-12">
   <div class="row justify-content-between mt-5">
-    <div class="col-5 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
+    <div class="col-lg-5 col-sm-12 mt-3 p-4 bgColor" style="border: solid 3px lightgray;">
       <h3 class="text-center pb-3">My To-Do's:</h3>
       <form class="row" id="todoForm">
         <div class="col-10">
@@ -61,7 +62,7 @@
 
     <!-- {{!-- START A STUDY GROUP SECTION --}} -->
 
-    <div class='col-6 border loginDiv mt-3 p-4'>
+    <div class='col-lg-6 col-sm-12 border loginDiv mt-3 p-4'>
 
       <h3 class='text-center pb-3'>Start a Study Group</h3>
 
@@ -140,21 +141,20 @@
 <br /><br />
 
 {{! NOTES SECTION }}
-<div class='container col-12 mt-5 mb-5 border'>
+<div class='container col-12 col-sm-12 mt-5 mb-5 border'>
   <div class='row'>
     <h2 class='border p-3 text-center bgColor'> YOUR SAVED NOTES/RESOURCES </h2>
   </div>
 
   <div class='row'>
-    <div class='col-4'>
+    <div class='col-4 col-sm-3 notesSideBar border mt-3'>
       {{#if notes.length}}
       {{#each notes as |notes|}}
       <ul class='list-group'>
         <div class='row'>
           <div class='row m-1'>
-            <li class="list-group-item">
-            <li class='list-group-item'>{{notes.title}}</li>
-            <li class='list-group-item'>{{notes.description}}</li>
+            <li class='list-group-item notesBar'>{{notes.title}}</li>
+            <li class='list-group-item notesBar'>{{notes.description}}</li>
 
             <i class='fa fa-trash align-right col-2 mt-2 deleteNote' data-id='{{notes.id}}' style='font-size:28px;'>
             </i>
@@ -165,9 +165,10 @@
       {{/each}}
       {{/if}}
     </div>
-    <div class='col-8 border'>
-      <div class='row justify-content-between'>
 
+
+    <div class='col-8'>
+      <div class='row justify-content-between'>
         {{!-- {{#each notes as |note|}} --}}
         <div class='col-10'>
           <input class='note-title' placeholder='Note Title' maxlength='28' type='text' />

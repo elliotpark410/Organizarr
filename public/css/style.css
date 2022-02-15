@@ -8,6 +8,10 @@
   background-color: rgb(3, 152, 158);
 }
 
+.hfColor {
+  background-color: rgb(188, 207, 237);
+}
+
 /* note section in dashboard */
 li {
     list-style-type: none;
@@ -27,8 +31,9 @@ title {
 
 .note-textarea {
   resize: none;
-  height: calc(100% - 63px);
+  height: 24rem;
   padding-top: 15px;
+  overflow: scroll;
 }
 
 .note-title {
@@ -57,3 +62,7 @@ title {
   bottom: 0;
 }
 
+.notesSideBar {
+  height: 27rem;
+  overflow: scroll;
+}
