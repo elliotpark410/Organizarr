@@ -1,8 +1,8 @@
-const User = require('./User');
-const Subject = require('./Subject');
-const ToDo = require('./ToDo');
-const Notes = require('./Notes');
-const StudyGroup = require('./StudyGroup');
+const User = require('./user');
+const Subject = require('./subject');
+const ToDo = require('./toDo');
+const Notes = require('./notes');
+const StudyGroup = require('./studyGroup');
 
 StudyGroup.belongsTo(Subject, {
   foreignKey: 'subject_id'
