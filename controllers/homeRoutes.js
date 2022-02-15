@@ -110,13 +110,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/studygroup', withAuth, async (req, res) => {
   try {
     const studyGroupData = await StudyGroup.findAll({
-      include: [{ model: User, attributes: ['name'], }],
+      include: [{ model: Subject }],
     });
 
     const studyGroups = studyGroupData.map((studyGroup) => studyGroup.get({ plain: true }
       ));
-
-    // const studyGroups = studyGroupData.get({ plain: true });
 
     console.log(studyGroups);
 
@@ -129,6 +127,7 @@ router.get('/studygroup', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 
 // when they route to signup page, it will render singup.handlebars
