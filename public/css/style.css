@@ -17,8 +17,10 @@ li {
     list-style-type: none;
 }
 
-title {
-  color: purple;
+.todoListItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .note-textarea,
