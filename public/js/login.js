@@ -24,7 +24,7 @@ const loginFormHandler = async (event) => {
     }
   };
   
-  
+   
   const takeSignUp = () =>{
     console.log('taking to signup page');
     document.location.replace('/signup');
