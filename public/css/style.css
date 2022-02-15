@@ -1,10 +1,15 @@
+/* baby blue: rgb(188, 207, 237) */
 /* makes active link appear bold in navbar */
 .active {
     font-weight: bold;
 }
 
 .bgColor {
-  background-color: rgb(47, 138, 138);
+  background-color: rgb(3, 152, 158);
+}
+
+.hfColor {
+  background-color: rgb(188, 207, 237);
 }
 
 /* note section in dashboard */
@@ -26,8 +31,9 @@ title {
 
 .note-textarea {
   resize: none;
-  height: calc(100% - 63px);
+  height: 24rem;
   padding-top: 15px;
+  overflow: scroll;
 }
 
 .note-title {
@@ -56,3 +62,7 @@ title {
   bottom: 0;
 }
 
+.notesSideBar {
+  height: 27rem;
+  overflow: scroll;
+}
