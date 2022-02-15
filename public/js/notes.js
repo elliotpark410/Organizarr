@@ -37,9 +37,9 @@ const newNote = async (event) => {
     }
   };
 // event listener to run delNote
-  var deleteTodo = document.querySelectorAll('.deleteToDo')
-  for (let i = 0; i < deleteTodo.length; i++) {
-    deleteTodo[i].addEventListener('click', delToDO);
+  var deleteNote = document.querySelectorAll('.deleteNote')
+  for (let i = 0; i < deleteNote.length; i++) {
+    deleteNote[i].addEventListener('click', delNotes);
   };
 
   // event listner to run newNote
