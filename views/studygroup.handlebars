@@ -14,7 +14,44 @@
 <em><h3 class='text-center mb-5' id="dateToday"> </h3></em>
 
 {{#each studyGroups as |studyGroup|}}
-<div class='container col-7 mt-3 border bgColor text-white' id='studyGroup'>
+  <div class='container col-7 mt-3 border bgColor text-white' id='studyGroup'>
+
+    <div class='row'>
+
+      <div class='col-8'>
+
+        <ul>
+          <li class='my-3 p-2'>
+          
+            <strong>Date:</strong><span class='sgDate'> {{studyGroup.date}} </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Time:</strong><span class='sgTime'> {{studyGroup.time}} </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Subject:</strong><span class='sgWork'>
+              {{subject.name}}
+            </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Studying Style:</strong><span class='sgStyle'>
+              {{studyGroup.studyPreference}}
+            </span>
+          </li>
+          <li class='my-3 p-2'>
+            <strong>Meeting:</strong><span class='sgLink'>
+              <a href={{studyGroup.url}} target="_blank"> Link </a>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class='col-3 text-center m-auto'>
+        <h4> Click to RSVP </h4>
+        <button type='submit' class='btn addNote'>
+          <i class='fa fa-plus' style='font-size:45px;'></i>
+        </button>
+      </div>
 
   <div class='row'>
 
