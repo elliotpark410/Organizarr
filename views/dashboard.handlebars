@@ -147,18 +147,15 @@
   </div>
 
   <div class='row'>
-    <div class='col-4 col-sm-3 notesSideBar border mt-3'>
+    <div class='col-4 notesSideBar m-2 px-4'>
       {{#if notes.length}}
       {{#each notes as |notes|}}
-      <ul class='list-group'>
+      <ul class='list-group mb-2'>
         <div class='row'>
-          <div class='row m-1'>
-            <li class='list-group-item notesBar'>{{notes.title}}</li>
-            <li class='list-group-item notesBar'>{{notes.description}}</li>
-
-            <i class='fa fa-trash align-right col-2 mt-2 deleteNote' data-id='{{notes.id}}' style='font-size:28px;'>
-            </i>
-            </li>
+          <div class='mb-3 p-2 border'>
+            <li class='list-group-item notesBar' style='border: 0;'><strong>{{notes.title}}</strong></li>
+            <li class='list-group-item notesBar' style='border: 0;'>{{notes.description}}</li>
+            <i class='fa fa-trash col-12 text-end mt-2 deleteNote' data-id='{{notes.id}}' style='font-size:30px;'></i>
           </div>
         </div>
       </ul>
@@ -167,8 +164,8 @@
     </div>
 
 
-    <div class='col-8'>
-      <div class='row justify-content-between'>
+    <div class='col-7'>
+      <div class='row'>
         {{!-- {{#each notes as |note|}} --}}
         <div class='col-10'>
           <input class='note-title' placeholder='Note Title' maxlength='28' type='text' />
@@ -176,7 +173,7 @@
         </div>
         {{!-- {{/each}} --}}
 
-        <div class="text-end col-1 mt-2">
+        <div class="col-2 mt-2 text-end">
           <button type="click" class="btn" id="addNote">
             <i class="fa fa-save" style="font-size:36px;"></i>
           </button>
