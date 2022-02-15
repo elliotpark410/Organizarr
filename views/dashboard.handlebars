@@ -1,6 +1,6 @@
 <h1 class='title text-center m-4'> ORGANIZARR </h1>
 
-<ul class='nav navbar-dark justify-content-center bgColor'>
+<ul class='nav navbar justify-content-center bgColor'>
   <li class='nav-item'>
     <button class='no-button' id='logout'>logout</button>
   </li>
@@ -152,13 +152,13 @@
       <ul class='list-group'>
         <div class='row'>
           <div class='row m-1'>
-           <li class="list-group-item">
-          <li class='list-group-item'>{{notes.title}}</li>
-          <li class='list-group-item'>{{notes.description}}</li>
-      
-            <i class='fa fa-trash align-right col-2 mt-2 deleteNote' data-id='{{notes.id}}'
-              style='font-size:28px;'> </i>
-            </li>   
+            <li class="list-group-item">
+            <li class='list-group-item'>{{notes.title}}</li>
+            <li class='list-group-item'>{{notes.description}}</li>
+
+            <i class='fa fa-trash align-right col-2 mt-2 deleteNote' data-id='{{notes.id}}' style='font-size:28px;'>
+            </i>
+            </li>
           </div>
         </div>
       </ul>
@@ -175,18 +175,18 @@
         </div>
         {{!-- {{/each}} --}}
 
-            <div class="text-end col-1 mt-2">
-              <button type="click" class="btn" id="addNote">
-                <i class="fa fa-save" style="font-size:36px;"></i>
-              </button>
-            </div>
-           
-          </div>
-
+        <div class="text-end col-1 mt-2">
+          <button type="click" class="btn" id="addNote">
+            <i class="fa fa-save" style="font-size:36px;"></i>
+          </button>
         </div>
+
       </div>
+
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <script src='/js/todo.js'></script>
@@ -196,4 +196,7 @@
 {{!-- this is for creating study group function --}}
 <script src='/js/studygroup.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
-<script src='/js/currentDate.js'></script>
+<script>
+  var currentDate = dayjs().format('MMMM D, YYYY');
+  document.getElementById('todaysDate').innerHTML = ('It' + "'" + 's ' + currentDate);
+</script>

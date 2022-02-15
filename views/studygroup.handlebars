@@ -1,7 +1,7 @@
 <h1 class='title text-center mt-4'> ORGANIZARR </h1>
 <p class='title text-end m-3'> {{name}} </p>
 
-<ul class='nav navbar-dark bg-dark justify-content-center'>
+<ul class='nav navbar justify-content-center bgColor'>
   <li class='nav-item'>
     <button class='no-button' id='logout'>logout</button>
   </li>
@@ -11,53 +11,57 @@
 </ul>
 
 <h2 class='text-center mt-5'> UPCOMING STUDY GROUPS</h2>
-<h3 class='text-center mb-5'>as of
-  <h3 class='currentDate'></h3>
-</h3>
+<em><h3 class='text-center mb-5' id="dateToday"> </h3></em>
 
 {{#each studyGroups as |studyGroup|}}
-  <div class='container col-7 mt-3 border' id='studyGroup'>
+<div class='container col-7 mt-3 border bgColor text-white' id='studyGroup'>
 
-    <div class='row'>
+  <div class='row'>
 
-      <div class='col-8'>
+    <div class='col-8'>
 
-        <ul>
-          <li class='my-3 p-2'>
-          
-            <strong>Date:</strong><span class='sgDate'> {{studyGroup.date}} </span>
-          </li>
-          <li class='my-3 p-2'>
-            <strong>Time:</strong><span class='sgTime'> {{studyGroup.time}} </span>
-          </li>
-          <li class='my-3 p-2'>
-            <strong>Working On:</strong><span class='sgWork'>
-              {{studyGroup.subject_name}}
-            </span>
-          </li>
-          <li class='my-3 p-2'>
-            <strong>Studying Style:</strong><span class='sgStyle'>
-              {{studyGroup.studyPreference}}
-            </span>
-          </li>
-          <li class='my-3 p-2'>
-            <strong>Meeting:</strong><span class='sgLink'>
-              <a href={{studyGroup.url}} target="_blank"> Link </a>
-            </span>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li class='my-3 p-2'>
 
-      <div class='col-3 text-center m-auto'>
-        <h4> Click to RSVP </h4>
-        <button type='submit' class='btn addNote'>
-          <i class='fa fa-plus' style='font-size:45px;'></i>
-        </button>
-      </div>
+          <strong>Date:</strong><span class='sgDate'> {{studyGroup.date}} </span>
+        </li>
+        <li class='my-3 p-2'>
+          <strong>Time:</strong><span class='sgTime'> {{studyGroup.time}} </span>
+        </li>
+        <li class='my-3 p-2'>
+          <strong>Subject:</strong><span class='sgWork'>
+            {{studyGroup.subject_name}}
+          </span>
+        </li>
+        <li class='my-3 p-2'>
+          <strong>Studying Style:</strong><span class='sgStyle'>
+            {{studyGroup.studyPreference}}
+          </span>
+        </li>
+        <li class='my-3 p-2'>
+          <strong>Meeting:</strong><span class='sgLink'>
+            <a href={{studyGroup.url}} target="_blank"> Link </a>
+          </span>
+        </li>
+      </ul>
+    </div>
 
+    <div class='col-3 text-center m-auto'>
+      <h4> Click to RSVP </h4>
+      <button type='submit' class='btn addNote'>
+        <i class='fa fa-plus' style='font-size:45px;'></i>
+      </button>
     </div>
 
   </div>
+
+</div>
 {{/each}}
 
 <script src='/js/logout.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+<script src='/js/currentDate.js'></script>
+<script>
+  var currentDate = dayjs().format('MMMM D, YYYY');
+  document.getElementById('dateToday').innerHTML = ('as of ' + currentDate);
+</script>

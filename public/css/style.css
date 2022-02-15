@@ -1,10 +1,11 @@
+/* baby blue: rgb(188, 207, 237) */
 /* makes active link appear bold in navbar */
 .active {
     font-weight: bold;
 }
 
 .bgColor {
-  background-color: rgb(47, 138, 138);
+  background-color: rgb(3, 152, 158);
 }
 
 /* note section in dashboard */
