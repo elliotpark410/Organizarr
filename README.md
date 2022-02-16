@@ -44,19 +44,19 @@ GIF of Application - Create Study Group
 
 
 ## Table of Contents
-  * [Getting-Started](#getting-started)
+  * [Getting Started](#getting-started)
   * [Installation](#installation)
-  * [Technologies-Used](#technologies-used)
-  * [Contribution-Guidelines](#contribution-guidelines)
-  * [Cloning-Guidelines](#cloning-guidelines)
-  * [Code-Snippets](#code-snippets)
-  * [Learning-Points](#learning-points)
+  * [Technologies Used](#technologies-used)
+  * [Contribution Guidelines](#contribution-guidelines)
+  * [Cloning Guidelines](#cloning-guidelines)
+  * [Code Snippets](#code-snippets)
+  * [Learning Points](#learning-points)
   * [Authors](#authors)
-  * [License-and-Acknowledgements](#license-and-acknowledgements)
+  * [License and Acknowledgements](#license-and-acknowledgements)
 <br>
 
 
-## Getting-Started
+## Getting Started
 
 Open your favorite web browser and enter the following web address to access. 
 
@@ -79,7 +79,7 @@ To run this application, you will need Node and other dependencies:
 
 1. You will need to install Node.js. Here is a link below:
 
->https://nodejs.org/en/download/
+[Download Node](https://nodejs.org/en/download/)
 
 <br>
 
@@ -90,28 +90,21 @@ To run this application, you will need Node and other dependencies:
 
 <br>
 
-3. After installing npm, you have to initialize npm. In command line, you can enter:
-
-`npm init -y
-`
-
-<br>
-
-4. Next, install all the dependencies in the package.json. In command line, you can enter:
+3. Next, install all the dependencies in the package.json. In command line, you can enter:
 
 `npm install 
 `
 
-5. Additionally, you will need to download mysql database to store and access data:
+4. Additionally, you can download mysql database to store and access data:
 
->https://www.mysql.com/downloads/
+[Download MySQL](https://www.mysql.com/downloads/)
 
 <br>
 
 
-6. Lastly, you will need to download Insomnia for testing API routes:
+5. Lastly, you will need to download Insomnia for testing API routes:
 
->https://insomnia.rest/download
+[Download Insomnia](https://insomnia.rest/download)
 
 <br>
 
@@ -154,7 +147,7 @@ Example DELETE: The API request below will delete note with id = "1"
 <br> -->
 
 
-## Technologies-Used
+## Technologies Used
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Node.js](https://nodejs.org/en/) 
 * [Express](https://www.npmjs.com/package/express) 
@@ -173,7 +166,7 @@ Example DELETE: The API request below will delete note with id = "1"
 <br>
 
 
-## Contribution-Guidelines
+## Contribution Guidelines
 To contribute, please follow these steps:
 
 1. Fork this repository.
@@ -187,7 +180,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 <br>
 
 
-## Cloning-Guidelines
+## Cloning Guidelines
 
 To install this code, please use [Github's guidlines to clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
@@ -242,7 +235,7 @@ Link to E-Commerce-PUT-POST-DELETE-routes GIF
 
 <br> -->
 
-## Code-Snippets
+## Code Snippets
 
 This code snippet shows our client side JavaScript executing a fetch request that hits the user login API and stores a user's username and password to the database
 
@@ -284,7 +277,7 @@ const loginFormHandler = async (event) => {
  <br>
 
 
-## Learning-Points
+## Learning Points
 
 * How to use Sequelize ORM
 
@@ -334,7 +327,7 @@ const loginFormHandler = async (event) => {
 <br>
 
 
-## License-and-Acknowledgements
+## License and Acknowledgements
 [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
 
 This project is licensed under the MIT license via UC Berkeley's Extension Program
